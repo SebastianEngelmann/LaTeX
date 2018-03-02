@@ -1,0 +1,40 @@
+\section{Was ist \LaTeX?}
+
+\begin{frame}{Was ist \LaTeX?}
+\begin{itemize}
+    \item \LaTeX{} ist eine Sammlung von \textbf{Makros}, die die Nutzung von \TeX{} ermöglicht
+    \newline
+    \item \TeX{} wiederum ist ein \textbf{Drucksatzsystem}, mit dem sich Texte formatieren lassen
+    \newline
+    \item Text und Formatierungselemente werden \textbf{direkt in den Quelltext} geschrieben
+    \newline
+    \item \textbf{Vorteile:} Einfachheit in der Darstellung komplexer Strukturen, mathematischer Formeln, Grafiken und ähnlichem
+\end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Was ist \LaTeX?: Installation}
+\begin{itemize}
+\item \textbf{Windows:}
+\begin{enumerate}
+\item \textbf{MikTex Installer} installieren: \url{http://miktex.org/download}
+\item einzelne \textbf{Pakete} installieren: \textit{"MiKTeX" > "Maintenance (Admin)" > "Package Manager (Admin)"}
+\item \LaTeX{} \textbf{Editor} einrichten, z.B. Texmaker
+\end{enumerate}
+\item \textbf{Linux:}
+\begin{enumerate}
+\item \$ sudo apt-get install texlive-full
+\item \$ sudo apt-get install texlive-xetex
+\item \$ sudo apt-get install texlive texlive-doc-de texlive-latex-extra texlive-lang-german
+\item \$ sudo apt-get install latex-xcolor pgf tex-common texlive texlive-base texlive-base-bin texlive-common texlive-fonts-extra texlive-fonts-recommended texlive-lang-german texlive-latex-base texlive-latex-extra texlive-latex-recommended
+\item \$ sudo apt-get install texlive-pictures dot2tex sketch libqtexengine1 texlive-humanities texlive-pstricks
+\item \$ wget \url{http://mirror.ctan.org/graphics/pgf/contrib/tikz-qtree.zip}
+\begin{itemize}
+\item \textbf{im Ordner entpacken}
+\end{itemize}
+
+\item \$ sudo mv tikz-qtree/ /usr/share/texmf/tex/latex/
+\item \$ sudo texhash
+\end{enumerate}
+\end{itemize}
+\end{frame}
