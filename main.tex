@@ -13,7 +13,7 @@
 % image to be shown on the title page (without file extension, should be pdf or png)
 \titleimage{img/latex}
 
- % (optional, use only with long paper titles)
+% (optional, use only with long paper titles)
 \title{Crashkurs LaTeX}
 \subtitle{Mentoring WiSe 2016}
 \author{Anja Wolffgramm, Diane Hanke}
@@ -28,35 +28,35 @@
 
 \AtBeginSection[]
 {
-  \begin{frame}<beamer>{Inhalt}
-  	\begin{multicols}{2}%  erstellt 2 Spalten
-   		\tableofcontents[currentsection,currentsubsection]
-    \end{multicols}
-  \end{frame}
+	\begin{frame}<beamer>{Inhalt}
+	\begin{multicols}{2}%  erstellt 2 Spalten
+		\tableofcontents[currentsection,currentsubsection]
+	\end{multicols}
+\end{frame}
 }
 % Delete this, if you do not want the table of contents to pop up at
 % the beginning of each subsection:
 \AtBeginSubsection[]
 {
-  \begin{frame}<beamer>{Inhalt}
-  	\begin{multicols}{2}%  erstellt 2 Spalten
-   		\tableofcontents[currentsection,currentsubsection]
-    \end{multicols}
-  \end{frame}
+\begin{frame}<beamer>{Inhalt}
+\begin{multicols}{2}%  erstellt 2 Spalten
+	\tableofcontents[currentsection,currentsubsection]
+\end{multicols}
+\end{frame}
 }
 
 % //////////////////// BEGIN DOKUMENT ///////////////////////
 \begin{document}
 
 \begin{frame}[plain]
-  \titlepage
+\titlepage
 \end{frame}
 
 \begin{frame}{Inhalt}%
-	\begin{multicols}{2}%  erstellt 2 Spalten
-		\tableofcontents
-	\end{multicols}
-  % You might wish to add the option [pausesections]
+\begin{multicols}{2}%  erstellt 2 Spalten
+\tableofcontents
+\end{multicols}
+% You might wish to add the option [pausesections]
 \end{frame}
 
 \input{slides/was_ist_latex}
@@ -74,5 +74,4 @@
 %\input{slides/tikz}
 %\input{slides/bibliography}
 %\input{slides/ende}
-
 \end{document}
