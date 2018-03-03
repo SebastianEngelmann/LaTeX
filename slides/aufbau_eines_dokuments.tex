@@ -1,0 +1,99 @@
+\section{Aufbau eines Dokuments}
+
+% ////////////////// Dokumentenklassen //////////////
+\subsection{Dokumententypen}
+\begin{frame}[fragile]{Dokumentenklassen}
+\begin{itemize}
+\item \LaTeX{} bringt standardmäßig verschiedene Grunddokumententypen mit, die \textbf{verschiedene Eigenschaften} haben \newline
+\item in jedem Dokument muss die \textbf{Dokumentenklasse} angegeben werden $\Rightarrow$ erster Befehl eines Dokuments \newline
+\item Befehl zur Angabe der Klasse beinhaltet die Dokumentenklasse (in geschweiften Klammern) sowie die Angabe möglicher \textbf{Optionen} (in eckigen Klammern)
+\end{itemize}
+%\begin{varwidth}{0.45\linewidth}
+\begin{lstlisting}[style=tex]
+\documentclass[Optionen]{Dokumentenklasse}\end{lstlisting}
+\begin{itemize}
+\item \textbf{Übersicht:} \url{http://www.kkittel.de/wiki/doku.php?id=grundlegende_einstellungen:dokumentenklassen}
+\end{itemize}
+\end{frame}
+
+
+% ////////////////// Typen Übersicht //////////////
+\begin{frame}{Dokumententypen}
+\begin{itemize}
+\item \textbf{Article:} geeignet für kurze technische Artikel \textit{(scrartcl)}
+\item \textbf{Report:} geeignet für längere technische Artikel \textit{(scrreprt)}
+\item \textbf{Book:} Drucklayout standardmäßig zweiseitig; z.B.: automatische Kopfzeile mit Seitenzahl \textit{(scrbook)}
+
+\item \textbf{Letter:} geeignet zum Schreiben von Briefen \textit{(scrlttr2)}
+\end{itemize}
+\end{frame}
+
+% ///////////// Pakete ///////////////
+\subsection{Pakete}
+\begin{frame}[fragile]{Pakete}
+\TeX{} und \LaTeX{} besitzen einen Grundstock an Befehlen. Wenn man darüber hinaus Modifizierungen vornehmen möchte, muss man zusätzliche Pakete einbinden, die weitere Befehle zur Verfügung stellen.\pause
+
+\begin{lstlisting}[style=tex]
+\usepackage{fontspec}
+    % Schriftpaket, funktioniert nur mit den neueren Compilern z.B. XeLaTeX
+\usepackage{microtype}
+    % verbessert die Worttrennung
+\usepackage[ngerman]{babel}
+    % Spracheinstellung: richtige Silbentrennung.
+\usepackage{lmodern}
+    % verändert verwendete Schriftart, damit sie weniger pixelig ist
+\end{lstlisting}
+\end{frame}
+
+% ////////////// Begin Dokument //////////////
+\subsection{Das Dokument}
+\begin{frame}[fragile]{Das Dokument}
+Im Kopf des Dokuments kann man Einstellungen vornehmen und zusätzliche Pakete einbinden. Der eigentliche Inhalt folgt dann in der \textbf{document}-Umgebung:
+\begin{lstlisting}[style=tex]
+\documentclass[paper=a4, 10pt, ngerman]{scrartcl}
+
+\begin{document}
+   Mein Inhalt
+\end{document}\end{lstlisting}
+\end{frame}
+
+% //////// Titlepage //////////////
+\subsection{Titelseite}
+\begin{frame}[fragile]{Titelseite}
+Die für ein Dokument wichtige Angaben (wie z.B. Titel, Autor und Datum) lassen sich sehr einfach erstellen und werden dann automatisch vorformatiert.
+\begin{lstlisting}[style=tex]
+\begin{titlepage}
+  \title{Crashkurs LaTeX}
+  \subtitle{Mentoring WiSe 2016}
+  \subject{Computer Science}
+  \author{Anja Wolffgramm, Diane Hanke}
+  \date{25. November 2016}
+\end{titlepage}
+
+\maketitle % erstellt die Titelseite
+\end{lstlisting}
+
+% \textbf{Anwendung:}
+% \vspace{-2ex}
+% \begin{lstlisting}[style=tex]
+% \begin{titlepage}
+%   ...
+% \end{titlepage}
+
+% \begin{document}
+%    \maketitle
+% \end{document}
+% \end{lstlisting}
+% Wendet man die Zeilen 1 -- 7 vor Beginn des Dokuments an, wird eine extra Cover-Seite erstellt.
+
+% \begin{lstlisting}[style=tex]
+% \begin{document}
+%   \begin{titlepage}
+%     ...
+%   \end{titlepage}
+  
+%   \maketitle
+% \end{document}
+% \end{lstlisting}
+% Wendet man es innerhalb des Dokuments an, wird nachfolgender Inhalt auf die selbe Seite gesetzt.
+\end{frame}
