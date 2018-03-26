@@ -1,6 +1,6 @@
 \section{Funktionsweise}
 
-\begin{frame}
+\begin{frame}{Funktionsweise}
 
 \begin{figure}[ht!]
 	%\centering
@@ -9,7 +9,7 @@
 	%\centering
 	\node[shape = rectangle, draw = black, text width = 2.4cm, text centered] (r1) at (8, 0) {\LaTeX{} Quelltext};
 	
-	\node[shape = rectangle, draw = black, text width = 2.2cm, text centered] (r2) at (8, -1) {\TeX{} Compiler};
+	\node[shape = rectangle, draw = black, text width = 2.2cm, text centered] (r2) at (8, -1) {??\TeX{}-Compiler};
 	
 	\node[shape = rectangle, draw = black, text width = 2.6cm, text centered] (r3) at (6, -2) {DVI-Datei};
 	
@@ -36,6 +36,10 @@
 	\node[shape = rectangle, draw = black, text width = 2.2cm, text centered] (r14) at (13, -2.0) {externe Programme \\ Index, \\ Bibliografie, \\ Glossar};
 	
 	\node[shape = rectangle, draw = black, text width = 2.6cm, text centered] (r15) at (13, -0.2) {Klassendatei \\ Zusatzpakete};
+	
+	\node[shape = rectangle, draw = black, text width = 3cm, text centered] (r16) at (2, -0.2) {binäre Formatdatei \\ Fonts (Metriken)};
+	
+	\node[shape = rectangle, draw = black, text width = 2.6cm, text centered] (r17) at (2, -2.8) {Fonts (Type 1, \\ OpenType, ...)};
 	
 	%\node[shape = rectangle, text centered, label = below:Start] (t1) at (0, -4) {};
 	
@@ -64,6 +68,12 @@
 	\path[->] (r13) edge (r14);
 	
 	\path[->] (r14) edge (r2);
+	
+	\path[->] (r16) edge (r2);
+	
+	\path[->] (r17) edge (r4);
+	
+	\path[draw, ->] (r17) --++ (0, -0.6cm) --++ (6.5cm, 0); 
 		
 	%\path[->] (e1) edge node[below] {ja} (r3);
 	
@@ -81,4 +91,22 @@
 	\caption[Schematischer Ablauf evolution\"{a}rer Algorithmen]{Von der Quelle bis zur Mündung ...} 
 	%\label{fig:processga}
 \end{figure}
+\end{frame}
+
+\begin{frame}{Funktionsweise}
+Für einfache Texte gelten folgende Schritte:
+\begin{enumerate}
+	\item Texte im Editor schreiben, bspw. mit \textit{Kile}: \texttt{kile meinText.tex}
+	\item Dokument übersetzen, bspw. mit pdf\LaTeX{}: \texttt{pdflatex meinText.tex}
+\end{enumerate}
+Es werden dabei mindestens folgende Dateien erzeugt: \\
+\begin{tabular}[pos]{lp{8.5cm}}
+	\texttt{meinText.log} & Enthält alle Statusmeldungen des Übersetzungsvorgangs. \\
+	\texttt{meinText.aux} & Enthält unter anderem die Einträge für Querverweise. \\
+	\texttt{meinText.pdf} & Das erzeugte PDF-Dokument (nach dem ersten Durchlauf ohne Inhaltsverzeichnis).
+\end{tabular}
+\begin{enumerate}
+	\item[3.] Erneutes Übersetzen des Dokuments: \texttt{pdflatex meinText.tex}
+	\item[4.] PDF-Dokument ansehen, bspw. mit dem PDF-Viewer \textit{okular}: \texttt{okular meinText.pdf}
+\end{enumerate}
 \end{frame}
