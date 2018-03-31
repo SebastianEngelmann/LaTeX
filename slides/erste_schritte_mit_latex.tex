@@ -1,0 +1,87 @@
+\section{Erste Schritte mit \LaTeX}
+
+% ===== Aufbau eines LaTeX-Dokuments =====
+\subsection{Aufbau eines \LaTeX{}-Dokuments}
+
+\begin{frame}[fragile]{Aufbau eines \LaTeX{}-Dokuments}
+	Die Minimalstruktur eines Quelltextes besteht aus zwei wesentlichen Teilen: Der \textbf{Präambel} und dem \textbf{Textkörper}. Alles was zwischen \texttt{\textbackslash documentclass} und \texttt{\textbackslash begin\{document\}} steht, zählt formal zur Präambel und alles danach zum Textkörper. 	
+\begin{lstlisting}[style=tex]
+\documentclass[Optionen]{Name}[Version] 
+...
+\begin{document}
+...
+\end{document}
+\end{lstlisting}
+Die Präambel enthält prinzipiell all das, was an allgemeinen Definitionen und zusätzlichen festlegungen für das gesamte Dokument vorgenommen wird.	
+\end{frame}
+
+\begin{frame}[fragile]{Ein pdf\LaTeX{}-Beispiel}
+\begin{lstlisting}[style=tex]
+%% Ein pdflatex-Beispiel
+\documentclass[a5paper, ngerman, 11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{geometry}
+\usepackage{babel}
+\usepackage{eurosym}
+\usepackage{blindtext}
+\title{Textsatz mit \LaTeX}
+\author{Johannes Gutenberg}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Einführung}
+Erste Versuche mit dem Setzen eines \LaTeX-Dokuments für 0,--\,\euro.
+\blindtext[2]
+\end{document}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Ein \XeLaTeX{}-Beispiel}
+\begin{lstlisting}[style=tex]
+%% Ein xelatex-Beispiel
+\documentclass[a5paper, ngerman, 11pt]{article}
+\usepackage{fontenc}
+\fontspec[Mapping=tex-text]{Linux Libertine 0}
+\usepackage{microtype}
+\usepackage{polyglossia}
+\setmainlanguage[spelling=new]{german}
+\usepackage{geometry}
+\usepackage{dtklogos}
+\usepackage{blindtext}
+\title{Textsatz mit \XeLaTeX}
+\author{Johannes Gutenberg}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Einführung}
+Erste Versuche mit dem Setzen eines \XeLaTeX-Dokuments für 0,--\,€.
+\blindtext[2]
+\end{document}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Ein \LuaLaTeX{}-Beispiel}
+\begin{lstlisting}[style=tex]
+%% Ein lualatex-Beispiel
+\documentclass[a5paper, ngerman, 11pt]{article}
+\usepackage{fontenc}
+\setmainfont[Ligatures=TeX]{Linux Libertine 0}
+\usepackage{microtype}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage{dtklogos}
+\usepackage{blindtext}
+\title{Textsatz mit \LuaLaTeX}
+\author{Johannes Gutenberg}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Einführung}
+Erste Versuche mit dem Setzen eines \LuaLaTeX-Dokuments für 0,--\,€.
+\blindtext[2]
+\end{document}
+\end{lstlisting}
+\end{frame}
