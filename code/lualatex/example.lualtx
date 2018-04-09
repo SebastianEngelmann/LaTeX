@@ -7,7 +7,7 @@
 \usepackage{geometry}
 \usepackage{dtk-logos}
 \usepackage{blindtext}
-\title{Textsatzmit \LuaLaTeX}
+\title{Textsatz mit \LuaLaTeX}
 \author{Johannes Gutenberg}
 \date{\today}
 \begin{document}
