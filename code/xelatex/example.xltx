@@ -1,0 +1,19 @@
+%% Ein xelatex-Beispiel
+\documentclass[a5paper, ngerman, 11pt]{article}
+\usepackage{fontspec}
+\fontspec[Mapping=tex-text]{Linux Libertine}
+\usepackage{microtype}
+\usepackage{polyglossia}
+\setmainlanguage[spelling=new]{german}
+\usepackage{geometry}
+\usepackage{dtk-logos}
+\usepackage{blindtext}
+\title{Textsatz mit \XeLaTeX}
+\author{Johannes Gutenberg}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Einführung}
+Erste Versuche mit dem Setzen eines \XeLaTeX-Dokuments für 0,--€.
+\blindtext[2]
+\end{document}

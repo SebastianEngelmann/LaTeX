@@ -1,0 +1,18 @@
+%% Ein lualatex-Beispiel
+\documentclass[a5paper, ngerman, 11pt]{article}
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{Linux Libertine O}
+\usepackage{microtype}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage{dtk-logos}
+\usepackage{blindtext}
+\title{Textsatzmit \LuaLaTeX}
+\author{Johannes Gutenberg}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Einführung}
+Erste Versuche mit dem Setzen eines \LuaLaTeX-Dokumenrs für 0,--.
+\blindtext[2]
+\end{document}
