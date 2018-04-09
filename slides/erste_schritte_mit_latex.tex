@@ -39,17 +39,49 @@ Erste Versuche mit dem Setzen eines \LaTeX-Dokuments für 0,--\,\euro.
 \end{lstlisting}
 \end{frame}
 
+\begin{frame}[fragile]{Erläuterung des pdf\LaTeX{}-Beispiels}
+\begin{lstlisting}[style=tex, basicstyle=\tiny]
+\documentclass[a5paper, ngerman, 11pt]{article}
+   Dokumentenklasse article mit den globalen Optionen a5paper für das Papierformat, 
+   ngerman für die neue deutsche Rechtschreibung und 11pt für die Grundschriftgröße.
+\usepackage[T1]{fontenc}
+   Lade das Paket fontenc für die Schriftkodierung (fontencoding) mit der Option T1, damit 
+   zum einen Vektorschriften eingebunden werden und zum anderen eine Trennung an 
+   deutschen Umlauten ermöglicht wird.
+\usepackage[utf8]{inputenc}
+   Lade das Paket inputenc für die Eingabekodierung (inputencoding) mit der Option utf8, 
+   damit Umlaute und das ß direkt über die Tastatur eingegeben werden können.
+\usepackage{babel}
+   Lade Sprachpaket babel, welches die globale Option ngerman der Dokumentenklasse 
+   auswertet.
+\title{Textsatz mit \LaTeX}
+   Definiere den Titel.
+\author{Johannes Gutenberg}
+   Definiere den Autor
+\date{\today}
+   Definiere das Datum. Es wird hier das aktuelle Datum verwendet.
+\begin{document}
+   Beginn des Textkörpers.
+\maketitle
+   Formatierten Titel ausgeben.
+\section{Einführung}
+   Abschnittsüberschrift.
+\end{document}
+   Ende des Dokuments.
+\end{lstlisting}
+\end{frame}
+
 \begin{frame}[fragile]{Ein \XeLaTeX{}-Beispiel}
 \begin{lstlisting}[style=tex]
 %% Ein xelatex-Beispiel
 \documentclass[a5paper, ngerman, 11pt]{article}
-\usepackage{fontenc}
-\fontspec[Mapping=tex-text]{Linux Libertine 0}
+\usepackage{fontspec}
+\fontspec[Mapping=tex-text]{Linux Libertine O}
 \usepackage{microtype}
 \usepackage{polyglossia}
 \setmainlanguage[spelling=new]{german}
 \usepackage{geometry}
-\usepackage{dtklogos}
+\usepackage{dtk-logos}
 \usepackage{blindtext}
 \title{Textsatz mit \XeLaTeX}
 \author{Johannes Gutenberg}
@@ -57,7 +89,7 @@ Erste Versuche mit dem Setzen eines \LaTeX-Dokuments für 0,--\,\euro.
 \begin{document}
 \maketitle
 \section{Einführung}
-Erste Versuche mit dem Setzen eines \XeLaTeX-Dokuments für 0,--\,€.
+Erste Versuche mit dem Setzen eines \XeLaTeX-Dokuments für 0,--.
 \blindtext[2]
 \end{document}
 \end{lstlisting}
@@ -67,12 +99,12 @@ Erste Versuche mit dem Setzen eines \XeLaTeX-Dokuments für 0,--\,€.
 \begin{lstlisting}[style=tex]
 %% Ein lualatex-Beispiel
 \documentclass[a5paper, ngerman, 11pt]{article}
-\usepackage{fontenc}
-\setmainfont[Ligatures=TeX]{Linux Libertine 0}
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{Linux Libertine O}
 \usepackage{microtype}
 \usepackage{babel}
 \usepackage{geometry}
-\usepackage{dtklogos}
+\usepackage{dtk-logos}
 \usepackage{blindtext}
 \title{Textsatz mit \LuaLaTeX}
 \author{Johannes Gutenberg}
@@ -80,7 +112,7 @@ Erste Versuche mit dem Setzen eines \XeLaTeX-Dokuments für 0,--\,€.
 \begin{document}
 \maketitle
 \section{Einführung}
-Erste Versuche mit dem Setzen eines \LuaLaTeX-Dokuments für 0,--\,€.
+Erste Versuche mit dem Setzen eines \LuaLaTeX-Dokuments für 0,--.
 \blindtext[2]
 \end{document}
 \end{lstlisting}
