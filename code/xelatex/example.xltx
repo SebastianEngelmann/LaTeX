@@ -1,7 +1,7 @@
 %% Ein xelatex-Beispiel
 \documentclass[a5paper, ngerman, 11pt]{article}
 \usepackage{fontspec}
-\fontspec[Mapping=tex-text]{Linux Libertine}
+\fontspec[Mapping=tex-text]{Linux Libertine O}
 \usepackage{microtype}
 \usepackage{polyglossia}
 \setmainlanguage[spelling=new]{german}
