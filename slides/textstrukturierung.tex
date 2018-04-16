@@ -107,10 +107,13 @@ Dazu bindet man das Paket \textbf{enumerate} ein:
 
 \begin{document}
    \begin{enumerate}[a)]
-   \item
-   ...
+   \item erste Ebene
+      \begin{enumerate}[(i)]
+         \item zweite Ebene mit der Einstellung [(i)]
+      \end{enumerate}
    \end{enumerate}
-\end{document}\end{lstlisting}\pause
+\end{document}
+\end{lstlisting}%\pause
 
 \bigskip
 Und so sieht es aus:
@@ -122,7 +125,7 @@ Und so sieht es aus:
 \end{enumerate}
 \end{frame}
 
-% ////////////////// Tabulars //////////////
+% ===== Tabulars =====
 \subsection{Tabulars}
 \begin{frame}[fragile]{Tabulars}
 Einfachste Tabelle mit:
