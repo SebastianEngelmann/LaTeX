@@ -128,20 +128,29 @@ Und so sieht es aus:
 % ===== Tabulars =====
 \subsection{Tabulars}
 \begin{frame}[fragile]{Tabulars}
-Einfachste Tabelle mit:
+Einfache Tabellen können mit der Umgebung \textbf{tabular} erstellt werden.
 \begin{lstlisting}[style=tex]
-\begin{tabular}{FORMAT}
+\begin{tabular}{Spaltendefinitionen}
 Tabelleninhalt
-\end{tabular}\end{lstlisting}
+\end{tabular}
+\end{lstlisting}
 
-In das Feld \{FORMAT\} wird für jede Spalte die Formatierung angegeben
+In das Feld \{Spaltendefinitionen\} wird für jede Spalte die Formatierung angegeben. \\
+
 \begin{itemize}
-\item \textbf{c} -- für zentrierten Text (einzeilig)
-\item \textbf{l} -- für linksbündigen Text (einzeilig)
-\item \textbf{r} -- für rechtsbündigen Text (einzeilig)
-\item \textbf{p\{SIZEcm\}} -- Spalte soll SIZE cm breit sein und der Zelleninhalt wird automatisch umgebrochen
-\item \textbf{|} -- zieht eine vertikale Trennlinie zwischen zwei Spalten
+	\item \textbf{l} -- linksbündige Spalte (ohne Zeilenumbruch!) 
+	\item \textbf{c} -- zentrierte Spalte (ohne Zeilenumbruch!)
+	\item \textbf{r} -- rechtsbündige Spalte (ohne Zeilenumbruch!)
+	\item \textbf{p\{Länge\}} -- entspricht der Definition von \texttt{\textbackslash parbox[c]\{Länge\}}, welche grundsätzlich im Blocksatz und mit Zeilenumbrüchen gesetzt wird
+	\item \textbf{|} -- senkrechte Linie, kann beliebig erweitert werden zu ||...
 \end{itemize}
+%\begin{itemize}
+%\item \textbf{c} -- für zentrierten Text (einzeilig)
+%\item \textbf{l} -- für linksbündigen Text (einzeilig)
+%\item \textbf{r} -- für rechtsbündigen Text (einzeilig)
+%\item \textbf{p\{SIZEcm\}} -- Spalte soll SIZE cm breit sein und der Zelleninhalt wird automatisch umgebrochen
+%\item \textbf{|} -- zieht eine vertikale Trennlinie zwischen zwei Spalten
+%\end{itemize}
 \end{frame}
 
 \begin{frame}[fragile]{Tabulars}
@@ -188,7 +197,7 @@ Möchte man, dass die Tabelle eine feste Breite hat und Zelleninhalt automatisch
    \hline
    \end{tabularx}
 \end{document}
-\end{lstlisting}\pause
+\end{lstlisting}%\pause
 
 So sieht es aus:\vspace{3pt}
 \begin{tabularx}{\linewidth}{| X | X | p{2cm} |}
@@ -206,7 +215,7 @@ Zeilen und Spalten zu einer verschmelzen:
 
 \begin{lstlisting}[style=tex]
 \usepackage{multirow}   % für multirow in tabulars
-\end{lstlisting}\pause
+\end{lstlisting}%\pause
 
 Beispiel:
 \begin{lstlisting}[style=tex]
@@ -251,7 +260,7 @@ Die Tabellen müssen sich dafür in der \textbf{table}-Umgebung befinden.
       ...   
    \end{tabular}
 \end{table}
-\end{lstlisting}\label{tab01}\pause
+\end{lstlisting}\label{tab01}%\pause
 
 \begin{itemize}
 \item Der Befehl \textbf{\textbackslash listoftables} erstellt automatisch das Tabellenverzeichnis.
