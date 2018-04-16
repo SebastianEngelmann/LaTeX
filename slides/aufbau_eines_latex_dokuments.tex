@@ -175,7 +175,7 @@ In jedem \LaTeX{}-Dokument muss die \textbf{Dokumentenklasse} angegeben werden (
 % ///////////// Pakete ///////////////
 \subsection{Pakete}
 \begin{frame}[fragile]{Pakete}
-\TeX{} und \LaTeX{} besitzen einen Grundstock an Befehlen. Wenn man darüber hinaus Modifizierungen vornehmen möchte, muss man zusätzliche Pakete einbinden, die weitere Befehle zur Verfügung stellen.\pause
+\TeX{} und \LaTeX{} besitzen einen Pool an Makros (Befehle). Wenn man darüber hinaus Modifizierungen vornehmen möchte, muss man zusätzliche Pakete einbinden, die weitere Makros zur Verfügung stellen. Sie werden in die Präambel eingefügt. %\pause
 
 \begin{lstlisting}[style=tex]
 \usepackage{fontspec}
@@ -189,29 +189,18 @@ In jedem \LaTeX{}-Dokument muss die \textbf{Dokumentenklasse} angegeben werden (
 \end{lstlisting}
 \end{frame}
 
-% ////////////// Begin Dokument //////////////
-\subsection{Das Dokument}
-\begin{frame}[fragile]{Das Dokument}
-Im Kopf des Dokuments kann man Einstellungen vornehmen und zusätzliche Pakete einbinden. Der eigentliche Inhalt folgt dann in der \textbf{document}-Umgebung:
-\begin{lstlisting}[style=tex]
-\documentclass[paper=a4, 10pt, ngerman]{scrartcl}
-
-\begin{document}
-Mein Inhalt
-\end{document}\end{lstlisting}
-\end{frame}
-
-% //////// Titlepage //////////////
+% ===== Titlepage =====
 \subsection{Titelseite}
 \begin{frame}[fragile]{Titelseite}
-Die für ein Dokument wichtige Angaben (wie z.B. Titel, Autor und Datum) lassen sich sehr einfach erstellen und werden dann automatisch vorformatiert.
+Die Angaben für die Titelseite, wie bspw. Titel, Autor und Datum lassen sich sehr einfach erstellen und werden dann automatisch vorformatiert.
+
 \begin{lstlisting}[style=tex]
 \begin{titlepage}
-\title{Crashkurs LaTeX}
-\subtitle{Mentoring WiSe 2016}
-\subject{Computer Science}
-\author{Anja Wolffgramm, Diane Hanke}
-\date{25. November 2016}
+\title{Grundlagen \LaTeX{} für Seminararbeiten im Fachbereich Wirtschaftswissenschaft}
+\subtitle{Mentoring SoSe 2018}
+\subject{Fachbereich Wirtschaftswissenschaft}
+\author{Sebastian Engelmann}
+\date{8. Mai 2018}
 \end{titlepage}
 
 \maketitle % erstellt die Titelseite
