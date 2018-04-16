@@ -1,0 +1,269 @@
+\section{Aufbau eines \LaTeX{}-Dokuments}
+
+% ===== Struktur =====
+\subsection{Struktur}
+
+\begin{frame}[fragile]{Struktur}
+	Die Minimalstruktur eines Quelltextes besteht aus zwei wesentlichen Teilen: Der \textbf{Präambel} und dem \textbf{Textkörper}. Alles was zwischen \texttt{\textbackslash documentclass} und \texttt{\textbackslash begin\{document\}} steht, zählt formal zur Präambel und alles danach zum Textkörper. 	
+\begin{lstlisting}[style=tex]
+\documentclass[Optionen]{Name}[Version] 
+...
+\begin{document}
+...
+\end{document}
+\end{lstlisting}
+Die Präambel enthält prinzipiell all das, was an allgemeinen Definitionen und zusätzlichen festlegungen für das gesamte Dokument vorgenommen wird.	
+\end{frame}
+
+% ===== Beispiele =====
+\subsection{Beispiele}
+
+\begin{frame}[fragile]{Ein pdf\LaTeX{}-Beispiel}
+\begin{lstlisting}[style=tex]
+%% Ein pdflatex-Beispiel
+\documentclass[a5paper, ngerman, 11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{geometry}
+\usepackage{babel}
+\usepackage{eurosym}
+\usepackage{blindtext}
+\title{Textsatz mit \LaTeX}
+\author{Johannes Gutenberg}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Einführung}
+Erste Versuche mit dem Setzen eines \LaTeX-Dokuments für 0,--\,\euro.
+\blindtext[2]
+\end{document}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Erläuterung des pdf\LaTeX{}-Beispiels}
+\begin{lstlisting}[style=tex, basicstyle=\tiny]
+\documentclass[a5paper, ngerman, 11pt]{article}
+   Dokumentenklasse article mit den globalen Optionen a5paper für das Papierformat, 
+   ngerman für die neue deutsche Rechtschreibung und 11pt für die Grundschriftgröße.
+\usepackage[T1]{fontenc}
+   Lade das Paket fontenc für die Schriftkodierung (fontencoding) mit der Option T1, damit 
+   zum einen Vektorschriften eingebunden werden und zum anderen eine Trennung an 
+   deutschen Umlauten ermöglicht wird.
+\usepackage[utf8]{inputenc}
+   Lade das Paket inputenc für die Eingabekodierung (inputencoding) mit der Option utf8, 
+   damit Umlaute und das ß direkt über die Tastatur eingegeben werden können.
+\usepackage{babel}
+   Lade Sprachpaket babel, welches die globale Option ngerman der Dokumentenklasse 
+   auswertet.
+\title{Textsatz mit \LaTeX}
+   Definiere den Titel.
+\author{Johannes Gutenberg}
+   Definiere den Autor
+\date{\today}
+   Definiere das Datum. Es wird hier das aktuelle Datum verwendet.
+\begin{document}
+   Beginn des Textkörpers.
+\maketitle
+   Formatierten Titel ausgeben.
+\section{Einführung}
+   Abschnittsüberschrift.
+\end{document}
+   Ende des Dokuments.
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Ein \XeLaTeX{}-Beispiel}
+\begin{lstlisting}[style=tex]
+%% Ein xelatex-Beispiel
+\documentclass[a5paper, ngerman, 11pt]{article}
+\usepackage{fontspec}
+\fontspec[Mapping=tex-text]{Linux Libertine O}
+\usepackage{microtype}
+\usepackage{polyglossia}
+\setmainlanguage[spelling=new]{german}
+\usepackage{geometry}
+\usepackage{dtk-logos}
+\usepackage{blindtext}
+\title{Textsatz mit \XeLaTeX}
+\author{Johannes Gutenberg}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Einführung}
+Erste Versuche mit dem Setzen eines \XeLaTeX-Dokuments für 0,--.
+\blindtext[2]
+\end{document}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Ein \LuaLaTeX{}-Beispiel}
+\begin{lstlisting}[style=tex]
+%% Ein lualatex-Beispiel
+\documentclass[a5paper, ngerman, 11pt]{article}
+\usepackage{fontspec}
+\setmainfont[Ligatures=TeX]{Linux Libertine O}
+\usepackage{microtype}
+\usepackage{babel}
+\usepackage{geometry}
+\usepackage{dtk-logos}
+\usepackage{blindtext}
+\title{Textsatz mit \LuaLaTeX}
+\author{Johannes Gutenberg}
+\date{\today}
+\begin{document}
+\maketitle
+\section{Einführung}
+Erste Versuche mit dem Setzen eines \LuaLaTeX-Dokuments für 0,--.
+\blindtext[2]
+\end{document}
+\end{lstlisting}
+\end{frame}
+
+% ===== Dokumentenklassen =====
+\subsection{Dokumententypen}
+
+\begin{frame}[fragile]{Dokumentenklassen}
+In jedem \LaTeX{}-Dokument muss die \textbf{Dokumentenklasse} angegeben werden (erster Befehl des Dokuments). Jede Dokumentenklasse hat \textbf{verschiedene Eigenschaften}. Die Dokumentenklasse (in geschweiften Klammern) wird über den Befehl \texttt{\textbackslash documentclass} ausgewählt. Der ausgewählten Klasse können Optionen (in eckigen Klammern) mitgegeben werden, die von der Dokumentenklasse selbst als auch von den verwendeten Paketen ausgewertet werden können.
+%\begin{varwidth}{0.45\linewidth}
+\begin{lstlisting}[style=tex]
+\documentclass[Optionen]{Dokumentenklasse}
+\end{lstlisting}
+\end{frame}
+
+% ////////////////// Typen Übersicht //////////////
+\begin{frame}{Standardklassen}
+\begin{itemize}
+	\item \textbf{book:} Drucklayout standardmä{\ss}ig zweiseitig; z.B.: automatische Kopfzeile mit Seitenzahl
+	\begin{itemize}
+		\item Titel auf eigener Seite
+		\item Seitenaufzählungen mit römischen und arabischen Ziffern
+		\item Ebenen \textbackslash\texttt{part}, \textbackslash\texttt{chapter}, \textbackslash\texttt{section}, \textbackslash\texttt{subsection}, \textbackslash\texttt{subsubsection} und \textbackslash\texttt{paragraph}
+	\end{itemize}
+\item \textbf{article:} geeignet für kurze technische Artikel
+	\begin{itemize}
+		\item Titel auf eigener Seite
+		\item Seitenzählung mit arabischen Ziffern
+		\item Ebenen \textbackslash\texttt{part}, \textbackslash\texttt{section}, \textbackslash\texttt{subsection}, \textbackslash\texttt{paragraph}
+		\item Fortlaufende Nummerierungen der Abbildungen, Tabellen, Fu{\ss}noten und Gleichungen
+	\end{itemize}
+\item \textbf{report:} geeignet für längere technische Artikel
+	\begin{itemize}
+		\item wie \texttt{article}, jedoch mit \textbackslash\texttt{chapter}
+	\end{itemize}
+\item \textbf{letter:} geeignet zum Schreiben von Briefen
+	\begin{itemize}
+		\item Keine Ebenen
+		\item Elemente, die ein Brief aufweist, wie Absender, Anschrift, usw.
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Koma-Script}
+	Die Koma-Script-Reihe ist eine Sammlung von Klassen und Paketen, die besonders die typografischen Gepflogenheiten eines europäischen Layouts berücksichtigen (\url{https://komascript.de}). Sie besteht aus folgenden Dokumentenklassen: \\
+	%\vspace{0.5cm}
+	\begin{itemize}
+		\item \textbf{scrbook}
+		\item \textbf{scrartcl}
+		\item \textbf{scrreprt}
+		\item \textbf{scrlettr2}
+	\end{itemize}
+
+\end{frame}
+
+% ///////////// Pakete ///////////////
+\subsection{Pakete}
+\begin{frame}[fragile]{Pakete}
+\TeX{} und \LaTeX{} besitzen einen Grundstock an Befehlen. Wenn man darüber hinaus Modifizierungen vornehmen möchte, muss man zusätzliche Pakete einbinden, die weitere Befehle zur Verfügung stellen.\pause
+
+\begin{lstlisting}[style=tex]
+\usepackage{fontspec}
+% Schriftpaket, funktioniert nur mit den neueren Compilern z.B. XeLaTeX
+\usepackage{microtype}
+% verbessert die Worttrennung
+\usepackage[ngerman]{babel}
+% Spracheinstellung: richtige Silbentrennung.
+\usepackage{lmodern}
+% verändert verwendete Schriftart, damit sie weniger pixelig ist
+\end{lstlisting}
+\end{frame}
+
+% ////////////// Begin Dokument //////////////
+\subsection{Das Dokument}
+\begin{frame}[fragile]{Das Dokument}
+Im Kopf des Dokuments kann man Einstellungen vornehmen und zusätzliche Pakete einbinden. Der eigentliche Inhalt folgt dann in der \textbf{document}-Umgebung:
+\begin{lstlisting}[style=tex]
+\documentclass[paper=a4, 10pt, ngerman]{scrartcl}
+
+\begin{document}
+Mein Inhalt
+\end{document}\end{lstlisting}
+\end{frame}
+
+% //////// Titlepage //////////////
+\subsection{Titelseite}
+\begin{frame}[fragile]{Titelseite}
+Die für ein Dokument wichtige Angaben (wie z.B. Titel, Autor und Datum) lassen sich sehr einfach erstellen und werden dann automatisch vorformatiert.
+\begin{lstlisting}[style=tex]
+\begin{titlepage}
+\title{Crashkurs LaTeX}
+\subtitle{Mentoring WiSe 2016}
+\subject{Computer Science}
+\author{Anja Wolffgramm, Diane Hanke}
+\date{25. November 2016}
+\end{titlepage}
+
+\maketitle % erstellt die Titelseite
+\end{lstlisting}
+
+% \textbf{Anwendung:}
+% \vspace{-2ex}
+% \begin{lstlisting}[style=tex]
+% \begin{titlepage}
+%   ...
+% \end{titlepage}
+
+% \begin{document}
+%    \maketitle
+% \end{document}
+% \end{lstlisting}
+% Wendet man die Zeilen 1 -- 7 vor Beginn des Dokuments an, wird eine extra Cover-Seite erstellt.
+
+% \begin{lstlisting}[style=tex]
+% \begin{document}
+%   \begin{titlepage}
+%     ...
+%   \end{titlepage}
+
+%   \maketitle
+% \end{document}
+% \end{lstlisting}
+% Wendet man es innerhalb des Dokuments an, wird nachfolgender Inhalt auf die selbe Seite gesetzt.
+\end{frame}
+
+% ===== Sonderzeichen =====
+\subsection{Sonderzeichen}
+
+\begin{frame}{Sonderzeichen in \LaTeX}
+Nicht alle Zeichen der Tastatur stehen für die Eingabe zur Verfügung, da einige Sonderzeichen als \TeX{}-Steuerzeichen verwendet werden. Die nachfolgende Tabelle fasst die reservierten Zeichen zusammen.
+\begin{table}
+\caption{Eingabe von Sonderzeichen in \LaTeX}
+	\begin{tabular}{cll}
+		\hline
+		Zeichen & Eingabe & Bedeutung \\
+		\hline
+		\{ & \textbackslash\{ & Beginn einer Gruppe \\
+		\} & \textbackslash\} & Ende einer Gruppe \\
+		\# & \textbackslash\# & Parameter \\
+		\& & \textbackslash\& & Trenner bei Matrizen und Tabellen \\
+		\_ & \textbackslash\_ & Indizes im mathematischen Modus \\
+		\% & \textbackslash\% & Leitet Kommentare ein \\
+		\$ & \textbackslash\$ & Mathematischer Zeilenmodus \\
+		\textbackslash & \textbackslash\texttt{textbackslash} & Makrobeginn \\
+		\textasciitilde & \textbackslash\texttt{textasciitilde} & Leerzeichen ohne Umbruch \\
+	    \textasciicircum & \textbackslash\texttt{textasciicircum} & Exponent im mathematischen Modus \\
+		\hline
+	\end{tabular}
+\end{table}
+\end{frame}
