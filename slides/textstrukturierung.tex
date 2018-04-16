@@ -1,30 +1,34 @@
 \section{Textstrukturierung}
 
-% ////////////////// Gliederung //////////////
+% ===== Gliederung =====
 \subsection{Gliederung \& Inhaltsverzeichnis}
 \begin{frame}[fragile]{Gliederung \& Inhaltsverzeichnis}
 %\begin{varwidth}{0.45\linewidth}
-Eine Überschrift wird mit folgendem Befehl erstellt:
+%Eine Überschrift wird mit folgendem Befehl erstellt:
+Mit dem Makro \texttt{\textbackslash section} wird eine Überschrift in der ersten Gliederungsebene erzeugt:
 \begin{lstlisting}[style=tex]
-\section{my Headline}\end{lstlisting}
-\pause
-Unterüberschrift:
+\section{head}
+\end{lstlisting}
+%\pause
+Für eine Überschrift in der zweiten Gliederungsebene benutzen wir das Makro \texttt{\textbackslash subsection}:
 \begin{lstlisting}[style=tex]
-\subsection{my Subhead}\end{lstlisting}
-\pause
-Überschrift dritten Grades:
+\subsection{subhead}
+\end{lstlisting}
+%\pause
+In der dritten Gliederungsebene benutzen wir das Makro \texttt{\textbackslash subsubsection} für eine Überschrift:
 \begin{lstlisting}[style=tex]
-\subsubsection{my Subhead}\end{lstlisting}
+\subsubsection{subsubhead}
+\end{lstlisting}
 \end{frame}
 
-% ////////////////// Inhaltsverzeichnis //////////////
+% ===== Inhaltsverzeichnis =====
 \begin{frame}[fragile]{Gliederung \& Inhaltsverzeichnis}
-Das Inhaltsverzeichnis wird automatisch mit dem Befehl
+Das Inhaltsverzeichnis wird automatisch mit dem Makro
 \begin{lstlisting}[style=tex]
 \tableofcontents
 \end{lstlisting}
 erstellt. Dabei werden alle Überschriften übernommen.
-\pause
+%\pause
 \newline
 \newline
 Möchte man nicht, dass eine Überschrift im Verzeichnis auftaucht, benutzt man das Sternchen:
@@ -33,57 +37,66 @@ Möchte man nicht, dass eine Überschrift im Verzeichnis auftaucht, benutzt man 
 \end{lstlisting}
 \end{frame}
 
-% ////////////// Absätze, Zeilenumbrüche ///////////
+% ===== Absätze, Zeilenumbrüche =====
 \subsection{Absätze \& Zeilenumbrüche}
 \begin{frame}[fragile]{Absätze \& Zeilenumbrüche}
-\begin{itemize}
-\item gliedert Inhalt in Sinnzusammenhänge
-\item erste Zeile eingerückt und Abstand zwischen zwei Absätzen
-\end{itemize}
-\pause
-Zeilenumbruch entweder durch eine \textbf{Leerzeile} im Quelltext oder mit folgenden Befehlen erreichen:
-\begin{multicols}{2}
-\begin{lstlisting}[style=tex]
-\par\end{lstlisting}
-\begin{lstlisting}[style=tex]
-\newline\end{lstlisting}
-\begin{lstlisting}[style=tex]
-\linebreak\end{lstlisting}
-\begin{lstlisting}[style=tex]
-\\\end{lstlisting}
-\end{multicols}\pause
 
-Möchte man nicht, dass die erste Zeile eines Absatzes eingerückt wird, kann man folgende Zeile im Kopf des Dokuments vornehmen:
+Ein Zeilenumbruch kann entweder durch eine \textbf{Leerzeile} im Quelltext oder durch das Makro \textbf{\textbackslash\texttt{par}}  erreicht werden.
+
+\begin{itemize}
+	\item Gliederung des Inhalts in Gedankengänge
+	\item 1. Zeile ist eingerückt
+	\item Abstand zwischen zwei Absätzen
+\end{itemize}
+
+%\begin{multicols}{2}
+%\begin{lstlisting}[style=tex]
+%\par
+%\end{lstlisting}
+%\begin{lstlisting}[style=tex]
+%\newline
+%\end{lstlisting}
+%\begin{lstlisting}[style=tex]
+%\linebreak
+%\end{lstlisting}
+%\begin{lstlisting}[style=tex]
+%\\
+%\end{lstlisting}
+%\end{multicols}%\pause
+
+Möchte man nicht, dass die erste Zeile eines Absatzes eingerückt wird, kann man folgende Zeile in die Präambel des Dokuments vornehmen:
 \begin{lstlisting}[style=tex]
-\parindent 0pt\end{lstlisting}
+\parindent 0pt
+\end{lstlisting}
+
+Einen manuellen Zeilenumbruch ohne Abstand kann man mit folgenden Makros erzeugen:
+\begin{lstlisting}[style=tex]
+\newline              % Zeilenumbruch im selben Absatz
+\linebreak
+\\
+\end{lstlisting}
+
 \end{frame}
 
-% /////////////// Auflistung, Aufzählung //////////////
+% ===== Auflistung, Aufzählung =====
 \subsection{Auflistung \& Aufzählung}
 \begin{frame}[fragile]{Auflistung \& Aufzählung}
-\begin{itemize}
-\item unnummerierte Auflistung mit \textbf{itemize}
-\begin{itemize}
-\item kann bis zu vier Ebenen tief geschachtelt werden
-\end{itemize}
-\end{itemize}
+Für unnummerierte Auflistungen kann man die Umgebung \textbf{itemize} benutzen. Sie kann bis zu vier Ebenen tief geschachtelt werden.
 \begin{lstlisting}[style=tex]
 \begin{itemize}
-\item
+\item Stichpunkt 1
+\item Stichpunkt 2
 ...
-\end{itemize}\end{lstlisting}\pause
-
-\begin{enumerate}
-\item nummerierte Auflistung mit \textbf{enumerate}
-\begin{enumerate}
-\item kann ebenfalls bis zu vier Ebenen tief geschachtelt werden
-\end{enumerate}
-\end{enumerate}
+\end{itemize}
+\end{lstlisting}%\pause
+Für nummerierte Auflistungen kann man die Umgebung \textbf{enumerate} verwenden. Sie kann ebenfalls bis zu vier Ebenen tief geschachtelt werden.
 \begin{lstlisting}[style=tex]
 \begin{enumerate}
-\item
+\item Stichpunkt 1
+\item Stichpunkt 2
 ...
-\end{enumerate}\end{lstlisting}
+\end{enumerate}
+\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]{Auflistung \& Aufzählung Nummerierung}
