@@ -1,0 +1,310 @@
+\section{Textstrukturierung}
+
+% ////////////////// Gliederung //////////////
+\subsection{Gliederung \& Inhaltsverzeichnis}
+\begin{frame}[fragile]{Gliederung \& Inhaltsverzeichnis}
+%\begin{varwidth}{0.45\linewidth}
+Eine Überschrift wird mit folgendem Befehl erstellt:
+\begin{lstlisting}[style=tex]
+\section{my Headline}\end{lstlisting}
+\pause
+Unterüberschrift:
+\begin{lstlisting}[style=tex]
+\subsection{my Subhead}\end{lstlisting}
+\pause
+Überschrift dritten Grades:
+\begin{lstlisting}[style=tex]
+\subsubsection{my Subhead}\end{lstlisting}
+\end{frame}
+
+% ////////////////// Inhaltsverzeichnis //////////////
+\begin{frame}[fragile]{Gliederung \& Inhaltsverzeichnis}
+Das Inhaltsverzeichnis wird automatisch mit dem Befehl
+\begin{lstlisting}[style=tex]
+\tableofcontents
+\end{lstlisting}
+erstellt. Dabei werden alle Überschriften übernommen.
+\pause
+\newline
+\newline
+Möchte man nicht, dass eine Überschrift im Verzeichnis auftaucht, benutzt man das Sternchen:
+\begin{lstlisting}[style=tex]
+\section*{diese Überschrift taucht nicht auf}
+\end{lstlisting}
+\end{frame}
+
+% ////////////// Absätze, Zeilenumbrüche ///////////
+\subsection{Absätze \& Zeilenumbrüche}
+\begin{frame}[fragile]{Absätze \& Zeilenumbrüche}
+\begin{itemize}
+\item gliedert Inhalt in Sinnzusammenhänge
+\item erste Zeile eingerückt und Abstand zwischen zwei Absätzen
+\end{itemize}
+\pause
+Zeilenumbruch entweder durch eine \textbf{Leerzeile} im Quelltext oder mit folgenden Befehlen erreichen:
+\begin{multicols}{2}
+\begin{lstlisting}[style=tex]
+\par\end{lstlisting}
+\begin{lstlisting}[style=tex]
+\newline\end{lstlisting}
+\begin{lstlisting}[style=tex]
+\linebreak\end{lstlisting}
+\begin{lstlisting}[style=tex]
+\\\end{lstlisting}
+\end{multicols}\pause
+
+Möchte man nicht, dass die erste Zeile eines Absatzes eingerückt wird, kann man folgende Zeile im Kopf des Dokuments vornehmen:
+\begin{lstlisting}[style=tex]
+\parindent 0pt\end{lstlisting}
+\end{frame}
+
+% /////////////// Auflistung, Aufzählung //////////////
+\subsection{Auflistung \& Aufzählung}
+\begin{frame}[fragile]{Auflistung \& Aufzählung}
+\begin{itemize}
+\item unnummerierte Auflistung mit \textbf{itemize}
+\begin{itemize}
+\item kann bis zu vier Ebenen tief geschachtelt werden
+\end{itemize}
+\end{itemize}
+\begin{lstlisting}[style=tex]
+\begin{itemize}
+\item
+...
+\end{itemize}\end{lstlisting}\pause
+
+\begin{enumerate}
+\item nummerierte Auflistung mit \textbf{enumerate}
+\begin{enumerate}
+\item kann ebenfalls bis zu vier Ebenen tief geschachtelt werden
+\end{enumerate}
+\end{enumerate}
+\begin{lstlisting}[style=tex]
+\begin{enumerate}
+\item
+...
+\end{enumerate}\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Auflistung \& Aufzählung Nummerierung}
+Die Aufzählungszeichen lassen sich auch verändern.
+Dazu bindet man das Paket \textbf{enumerate} ein:
+\begin{lstlisting}[style=tex]
+\usepackage{enumerate}
+
+\begin{document}
+   \begin{enumerate}[a)]
+   \item
+   ...
+   \end{enumerate}
+\end{document}\end{lstlisting}\pause
+
+\bigskip
+Und so sieht es aus:
+\begin{enumerate}[a)]
+\item erste Ebene
+\begin{enumerate}[(i)]
+\item zweite Ebene mit der Einstellung [(i)]
+\end{enumerate}
+\end{enumerate}
+\end{frame}
+
+% ////////////////// Tabulars //////////////
+\subsection{Tabulars}
+\begin{frame}[fragile]{Tabulars}
+Einfachste Tabelle mit:
+\begin{lstlisting}[style=tex]
+\begin{tabular}{FORMAT}
+Tabelleninhalt
+\end{tabular}\end{lstlisting}
+
+In das Feld \{FORMAT\} wird für jede Spalte die Formatierung angegeben
+\begin{itemize}
+\item \textbf{c} -- für zentrierten Text (einzeilig)
+\item \textbf{l} -- für linksbündigen Text (einzeilig)
+\item \textbf{r} -- für rechtsbündigen Text (einzeilig)
+\item \textbf{p\{SIZEcm\}} -- Spalte soll SIZE cm breit sein und der Zelleninhalt wird automatisch umgebrochen
+\item \textbf{|} -- zieht eine vertikale Trennlinie zwischen zwei Spalten
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Tabulars}
+Der Tabelleninhalt wird wie folgt gesetzt:
+\begin{itemize}
+\item \textbf{\&} -- trennt die Spalten voneinander
+\item \textbf{\textbackslash\textbackslash} -- trennt die Zeilen voneinander
+\item \textbf{\textbackslash hline} -- zieht eine horizontale Trennlinie zwischen zwei Zeilen
+\end{itemize}
+
+Beispiel:
+\begin{lstlisting}[style=tex]
+\begin{tabular}{| l | c | r |}
+Spalte 1 & Spalte 2 & Spalte 3 \\
+\hline  % horizontale Trennlinie
+1 & 2 & 3 \\
+\end{tabular}
+\end{lstlisting}
+
+\bigskip
+Und so sieht es aus:
+%\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{| l | c | r |}
+Spalte 1 & Spalte 2 & Spalte 3 \\
+\hline
+1 & 2 & 3 \\
+\end{tabular}
+%\end{center}
+
+\bigskip
+Dabei richtet sich die Tabellenbreite nach dem Inhalt.
+\end{frame}
+
+\begin{frame}[fragile]{Tabulars}
+Möchte man, dass die Tabelle eine feste Breite hat und Zelleninhalt automatisch umgebrochen wird, benutzt man \textbf{tabularx}
+\begin{lstlisting}[style=tex]
+\usepackage{tabularx}
+
+\begin{document}
+   \begin{tabularx}{\linewidth}{| X | X | p{2cm} |}
+   \hline
+   ... & ... & ... \\
+   \hline
+   \end{tabularx}
+\end{document}
+\end{lstlisting}\pause
+
+So sieht es aus:\vspace{3pt}
+\begin{tabularx}{\linewidth}{| X | X | p{2cm} |}
+\hline
+Diese Spalte ist genauso breit wie die rechts neben ihr stehende. & Der Text wird in Blocksatz gesetzt.  & Diese Spalte hat eine feste Breite von 2\,cm. \\
+\hline
+\end{tabularx}
+
+\bigskip
+Die Gesamtbreite wird zu gleichen Teilen auf alle Spalten, die mit \textbf{X} deklariert wurden, verteilt.
+\end{frame}
+
+\begin{frame}[fragile]{Tabulars}
+Zeilen und Spalten zu einer verschmelzen:
+
+\begin{lstlisting}[style=tex]
+\usepackage{multirow}   % für multirow in tabulars
+\end{lstlisting}\pause
+
+Beispiel:
+\begin{lstlisting}[style=tex]
+\begin{tabular}{|c|c|c|}
+  \hline
+  \multicolumn{2}{|c|}{Kuchen} & Hefe \\
+  \hline
+  Zeit & \multirow{2}{*}{zwei Zeilen} & Zucker \\
+  \cline{1-1}\cline{3-3}  % vertikale Trennlinie
+  Sieb & & Mehl \\
+  \hline
+\end{tabular}
+\end{lstlisting}
+
+%\begin{center}
+So sieht es aus:
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|}
+\hline
+\multicolumn{2}{|c|}{eine Spalte} & Hefe \\
+\hline
+Zeit & \multirow{2}{*}{eine Zeile} & Zucker \\
+\cline{1-1}\cline{3-3}
+Sieb & & Mehl \\
+\hline
+\end{tabular}
+%\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Tabellenverzeichnis}
+Mit \textbf{\texttt{\textbackslash listoftables}} kann ein Tabellenverzeichnis erstellt werden.
+Die Tabellen müssen sich dafür in der \textbf{table}-Umgebung befinden.
+
+\begin{lstlisting}[style=tex]
+\begin{table}
+   \caption{\LaTeX{} Kursübersicht}
+   \label{tab01}
+   \begin{tabular}{|c|c|c|}
+      \hline
+      Zeitpunkt & Kursleiter & Titel \\
+      \hline 
+      ...   
+   \end{tabular}
+\end{table}
+\end{lstlisting}\label{tab01}\pause
+
+\begin{itemize}
+\item Der Befehl \textbf{\textbackslash listoftables} erstellt automatisch das Tabellenverzeichnis.
+\item Unsere Tabelle erzeugt den Eintrag ,,\textbf{\LaTeX{}~Kursübersicht} S.~\ref{tab01}``.
+\end{itemize}
+\end{frame}
+
+% ////////////////// Spaltenlayout //////////////
+\subsection{Spaltenlayout}
+\begin{frame}[fragile]{Spaltenlayout}
+\begin{itemize}
+\item Einzelne Bereiche einer Seite können in mehrere Spalten aufgeteilt werden.
+\item Dafür wird das \textbf{multicol}-Paket benötigt.
+\end{itemize}
+
+\begin{lstlisting}[style=tex]
+\usepackage{multicol}
+
+\begin{document}
+   \begin{multicols}{ANZAHL}
+   Inhalt
+   \end{multicols}
+   ...
+\end{document}
+\end{lstlisting}
+
+{\itshape
+\begin{multicols}{3}
+Der Inhalt (z.B. Text und Bilder) werden auf die Anzahl der Spalten gleichmäßig verteilt. Satzart: linksbündig. Faustregel: Je schmaler das Layout, desto weniger Spalten sollte man nehmen. Der Spalten-Zwischenraum wird automatisch angepasst.
+\end{multicols}}
+\end{frame}
+
+% ////////////////// Minipages //////////////
+\subsection{Minipages}
+\begin{frame}[fragile]{Minipages}
+Minipages geben neben Spalten und Tabellen die Möglichkeit, Inhalte zusammengehörig in einer Art \textbf{Container} zu anderen Inhalten auszurichten und ihnen eine feste Breite zu geben.
+\begin{lstlisting}[style=tex]
+\begin{minipage}[ÄUSSERE POSITION][HÖHE][INNERE POSITION]{BREITE}
+Inhalt
+\end{minipage}\end{lstlisting}
+\begin{itemize}
+\item ÄUSSERE POSITION richtet die Minipage relativ zur aktuellen Grundlinie aus:
+\begin{itemize}
+\item c = center
+\item t = top
+\item b = bottom \newline
+\end{itemize}
+\item HÖHE, ist eine gültige Längenangabe, durch die die Gesamthöhe der Minipage bestimmt wird. \newline
+\item INNERE POSITION, richtet den Inhalt der Minipage innerhalb der angegebenen HÖHE aus.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Minipages}
+Beispiel:
+\begin{lstlisting}[style=tex]
+\begin{minipage}{0.6\linewidth}
+   Inhalt 1
+\end{minipage}
+\hfill % schiebt die nachfolgende Minipage an den rechten Layoutrand
+\begin{minipage}{0.3\linewidth}
+   Inhalt 2
+\end{minipage}
+\end{lstlisting}
+
+\begin{minipage}{0.7\linewidth}
+\itshape Die Minipages richten sich standardmäßig vertikal mittig zueinander aus. Der Zwischenraum beträgt im Beispielcode $10\%$ der Layoutbreite.
+\end{minipage}
+\hfill 
+\begin{minipage}{0.25\linewidth}
+   \includegraphics[width=\linewidth]{img/latex_is_beautiful}
+\end{minipage}
+\end{frame}

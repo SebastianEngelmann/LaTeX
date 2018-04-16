@@ -1,36 +1,44 @@
-\section{Befehle \& Umgebungen}
-% ////////////////// Befehle //////////////
-\begin{frame}[fragile]{Befehle}
+\section{Makros \& Umgebungen}
+% ===== Makros =====
+\begin{frame}[fragile]{Makros}
 %\begin{multicols}{2}%  erstellt 2 Spalten
-Ein Befehl wird mit einem Backslash eingeleitet:
+Ein Makro wird mit einem Backslash eingeleitet:
 
 \begin{lstlisting}[style=tex]
-\huge nachfolgender Text\end{lstlisting}
+\huge nachfolgender Text
+\end{lstlisting}
 
-\pause Und so sieht es aus: {\huge nachfolgender Text}
+%\pause 
+Und so sieht es aus: {\huge nachfolgender Text}
 
 \vspace{2ex}
-\pause Manche Befehle erhalten Argumente in geschweiften Klammern:
+%\pause 
+Manche Makros erhalten Argumente in geschweiften Klammern:
 \begin{lstlisting}[style=tex]
-\textcolor{Pink}{mein pinker Unicorn-Text}\end{lstlisting}
+\textcolor{red}{mein roter Text}
+\end{lstlisting}
 
-\pause Und so sieht es aus: \textcolor{Pink}{mein pinker Unicorn-Text}
+%\pause 
+Und so sieht es aus: \textcolor{red}{mein roter Text}
 %\end{multicols}
 \end{frame}
 
-% ////////////////// Umgebung //////////////
+% ===== Umgebung =====
 \begin{frame}[fragile]{Umgebungen}
-Eine Umgebung fasst einen Bereich ein. Sie hat immer die folgende Form:
+Eine Umgebung stellt einen Bereich dar. Sie hat immer die folgende Form:
 
 \begin{lstlisting}[style=tex]
 \begin{meineUmgebung}
 Teil dazwischen
-\end{meineUmgebung}\end{lstlisting}
+\end{meineUmgebung}
+\end{lstlisting}
 
-\pause Als Beispiel dient da die Dokument-Umgebung:
+%\pause 
+Als Beispiel dient da die Dokument-Umgebung:
 
 \begin{lstlisting}[style=tex]
 \begin{document}
 mein cooles LaTeX-Dokument
-\end{document}\end{lstlisting}
+\end{document}
+\end{lstlisting}
 \end{frame}
