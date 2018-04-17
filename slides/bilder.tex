@@ -3,7 +3,7 @@
 \subsection{Bilder einbinden}
 \begin{frame}[fragile]{Bilder}
 \begin{minipage}{0.6\linewidth}
-Benötigt folgendes Paket:
+Für Bilder wird das Paket \texttt{graphicx} benötigt:
 \begin{lstlisting}[style=tex]
 \usepackage{graphicx}
 \end{lstlisting}
@@ -26,17 +26,17 @@ Options:
 Beispiel:
 \begin{lstlisting}[style=tex]
 \includegraphics[width=\linewidth]%
-   {img/}
+   {img/intro}
    \end{lstlisting}
 \end{minipage}
 \hfill
 \begin{minipage}{0.35\linewidth}
-\pause
+%\pause
 \includegraphics[width=\linewidth]{img/intro}
 \end{minipage}
 \end{frame}
 
-% ////////////////// Bildumgebung //////////////
+% ===== Bildumgebung =====
 \subsection{Bildumgebung}
 \begin{frame}[fragile]{Bildumgebung}   
 \begin{multicols}{2}
@@ -64,10 +64,10 @@ Beispiel:
 \end{figure}\end{lstlisting}
 \end{frame}
 
-% ////////////////// Bildverzeichnis //////////////
-\subsection{Bildverzeichnis}
-\begin{frame}[fragile]{Bildverzeichnis}
-Ein Bildverzeichnis erstellt \LaTeX{} automatisch mittels:
+% ===== Abbildungsverzeichnis =====
+\subsection{Abbildungsverzeichnis}
+\begin{frame}[fragile]{Abbildungsverzeichnis}
+Ein Abbildungsverzeichnis kann man mit dem folgenden Makro erstellen:
 
 \begin{lstlisting}[style=tex]
 \listoffigures
