@@ -1,5 +1,5 @@
 \section{Bilder}
-% ////////////////// Bilder einbinden //////////////
+% ===== Bilder einbinden =====
 \subsection{Bilder einbinden}
 \begin{frame}[fragile]{Bilder}
 \begin{minipage}{0.6\linewidth}
@@ -11,9 +11,10 @@ Benötigt folgendes Paket:
 Ein Bild bindet man mit folgendem Code ein:
 
 \begin{lstlisting}[style=tex]
-\includegraphics[OPTION]{path/name}\end{lstlisting}
+\includegraphics[OPTION]{path/name}
+\end{lstlisting}
 
-\pause
+%\pause
 Options:
 \begin{itemize}
 \item \verb|scale=1| (Werte $>0$)
@@ -21,16 +22,17 @@ Options:
 \item \verb|keepaspectratio=true|
 \end{itemize}
 
-\pause
+%\pause
 Beispiel:
 \begin{lstlisting}[style=tex]
 \includegraphics[width=\linewidth]%
-   {img/latex_is_beautiful}\end{lstlisting}
+   {img/}
+   \end{lstlisting}
 \end{minipage}
 \hfill
 \begin{minipage}{0.35\linewidth}
 \pause
-\includegraphics[width=\linewidth]{img/latex_is_beautiful}
+\includegraphics[width=\linewidth]{img/intro}
 \end{minipage}
 \end{frame}
 
@@ -42,12 +44,12 @@ Beispiel:
 \item erlaubt eine Bildbeschreibung
 \item ermöglicht einfache Zentrierung
 \item wird automatisch in das Bildverzeichnis übernommen
-\item Bildquelle: \url{https://eu.fotolia.com/Content/Comp/82385255}
+%\item Bildquelle: \url{https://eu.fotolia.com/Content/Comp/82385255}
 \end{itemize}
 
 \begin{figure}
 \centering
-\includegraphics[width=0.45\linewidth]{img/latex_is_beautiful}
+\includegraphics[width=0.45\linewidth]{img/intro}
 \caption[awesome_image]{Bildbeschreibung}
 \label{fig:awesome_image}
 \end{figure}
@@ -56,7 +58,7 @@ Beispiel:
 \begin{lstlisting}[style=tex]
 \begin{figure}
    \centering
-   \includegraphics[width=0.5\linewidth]{img/latex_is_beautiful}
+   \includegraphics[width=0.5\linewidth]{img/intro}
    \caption[awesome_image]{Bildbeschreibung}
    \label{fig:awesome_image}
 \end{figure}\end{lstlisting}
