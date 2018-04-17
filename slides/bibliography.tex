@@ -1,0 +1,71 @@
+\section{Bibliographie-Verzeichnis}
+\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\TeX}
+Wenn man sich auf Bücher oder Artikel anderer Autoren bezieht, muss man dies kennzeichnen. Dazu erstellt man ein Bibliographie-Datenbank und bindet diese ein:
+\begin{lstlisting}[style=tex]
+\usepackage[OPTIONS]{biblatex} % z.B. style=numeric
+
+\addbibresource{LITERATURDATENBANK.bib} % bindet die Literaturdatenbank ein
+
+\begin{document}
+   \printbibliography % erstellt das Literaturverzeichnis
+\end{document}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\TeX}
+Ein Eintrag in der Datenbank hat folgendes Schema:
+\begin{lstlisting}[style=tex]
+@REFERENZART{NAME,
+   author = "",
+   title = "",
+   volume = "",
+   number = "",
+   pages = "",
+   year = "", % hat die Form JJJJ
+   month = "",
+   howpublished = "",
+   note = "",
+   url = "", % benötigt das Paket "hyperref"
+}
+\end{lstlisting}
+
+Es gibt verschiedene Referenzarten:
+\begin{small}
+\vspace{-1ex}
+\begin{multicols}{3}
+\begin{itemize}\setlength{\itemsep}{-0.5ex}
+\item article
+\item book
+\item booklet
+\item conference
+\item inbook
+\item incollection
+\item inproceedings
+\item manual
+\item masterthesis
+\item misc
+\item phdthesis
+\item proceedings
+\item tecreport
+\item unpublished
+\end{itemize}
+\end{multicols}
+\end{small}
+
+Quelle: \url{https://de.wikipedia.org/wiki/BibTeX}
+\end{frame}
+
+\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\TeX}
+Eine Ressource zitiert man im Text wie folgt:
+\begin{lstlisting}[style=tex]
+\cite{NAME}
+\end{lstlisting}
+Sie wird dann im Literaturverzeichnis aufgeführt.\pause
+
+\bigskip
+Sollen alle Einträge der Literaturdatenbank in das Literaturverzeichnis übernommen
+werden, wenngleich sie nicht im Text zitiert wurden, kann dies wie folgt erreicht werden:
+\begin{lstlisting}[style=tex]
+\nocite{*}
+\end{lstlisting}
+\end{frame}

@@ -268,32 +268,32 @@ Die Tabellen müssen sich dafür in der \textbf{table}-Umgebung befinden.
 \end{itemize}
 \end{frame}
 
-% ////////////////// Spaltenlayout //////////////
-\subsection{Spaltenlayout}
-\begin{frame}[fragile]{Spaltenlayout}
-\begin{itemize}
-\item Einzelne Bereiche einer Seite können in mehrere Spalten aufgeteilt werden.
-\item Dafür wird das \textbf{multicol}-Paket benötigt.
-\end{itemize}
+% ===== Spaltenlayout =====
+%\subsection{Spaltenlayout}
+%\begin{frame}[fragile]{Spaltenlayout}
+%\begin{itemize}
+%\item Einzelne Bereiche einer Seite können in mehrere Spalten aufgeteilt werden.
+%\item Dafür wird das \textbf{multicol}-Paket benötigt.
+%\end{itemize}
 
-\begin{lstlisting}[style=tex]
-\usepackage{multicol}
+%\begin{lstlisting}[style=tex]
+%\usepackage{multicol}
 
-\begin{document}
-   \begin{multicols}{ANZAHL}
-   Inhalt
-   \end{multicols}
-   ...
-\end{document}
-\end{lstlisting}
+%\begin{document}
+%   \begin{multicols}{ANZAHL}
+%   Inhalt
+%   \end{multicols}
+%   ...
+%\end{document}
+%\end{lstlisting}
 
-{\itshape
-\begin{multicols}{3}
-Der Inhalt (z.B. Text und Bilder) werden auf die Anzahl der Spalten gleichmäßig verteilt. Satzart: linksbündig. Faustregel: Je schmaler das Layout, desto weniger Spalten sollte man nehmen. Der Spalten-Zwischenraum wird automatisch angepasst.
-\end{multicols}}
-\end{frame}
+%{\itshape
+%\begin{multicols}{3}
+%Der Inhalt (z.B. Text und Bilder) werden auf die Anzahl der Spalten gleichmäßig verteilt. Satzart: linksbündig. Faustregel: Je schmaler das Layout, desto weniger Spalten sollte man nehmen. Der Spalten-Zwischenraum wird automatisch angepasst.
+%\end{multicols}}
+%\end{frame}
 
-% ////////////////// Minipages //////////////
+% ===== Minipages =====
 \subsection{Minipages}
 \begin{frame}[fragile]{Minipages}
 Minipages geben neben Spalten und Tabellen die Möglichkeit, Inhalte zusammengehörig in einer Art \textbf{Container} zu anderen Inhalten auszurichten und ihnen eine feste Breite zu geben.
@@ -326,7 +326,7 @@ Beispiel:
 \end{lstlisting}
 
 \begin{minipage}{0.7\linewidth}
-\itshape Die Minipages richten sich standardmäßig vertikal mittig zueinander aus. Der Zwischenraum beträgt im Beispielcode $10\%$ der Layoutbreite.
+\itshape Die Minipages richten sich standardmä{\ss}ig vertikal mittig zueinander aus. Der Zwischenraum beträgt im Beispielcode $10\%$ der Layoutbreite.
 \end{minipage}
 \hfill 
 \begin{minipage}{0.25\linewidth}

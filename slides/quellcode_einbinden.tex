@@ -1,0 +1,90 @@
+\section{Quellcode einbinden}
+
+% ////////////////// Verbatim //////////////
+\subsection{Verbatim}
+\begin{frame}[fragile]{Verbatim}
+Wenn Text nicht vom \LaTeX-Compiler interpretiert werden soll, kann man ihn in ein \textbf{verb}-Befehl setzen:
+
+\begin{lstlisting}[style=tex]
+\verb| nicht interpretierter Text |
+\end{lstlisting}
+Dabei muss dem Befehl mitgeteilt werden, wann dies endet. Dies geschieht durch ein Zeichen, das den Bereich einleitet und abschließt.
+
+\pause\vspace{2ex}
+Für mehrere Zeilen gibt es die \textbf{verbatim}-Umgebung:
+
+\begin{lstlisting}[style=tex]
+\usepackage{verbatim}
+
+\begin{document}
+  \begin{verbatim}
+  diese Zeilen
+  sollen nicht interpretiert
+  werden       _ & \ -- % Kommentar
+  \end{verbatim}
+\end{document}
+\end{lstlisting}
+\end{frame}
+
+% ////////////////// Quellcode inline einbinden //////////////
+\subsection{Lstlistings}
+\begin{frame}[fragile]{Lstlistings: Quellcode inline einbinden}
+Um Programmcode in das Dokument einzubinden, möchte man sprachspezifisches \textbf{Syntax-Highlighting} und Zeilennummerierungen haben.
+
+\pause\vspace{2ex}
+Dafür gibt es das \textbf{listings}-Paket:
+
+\begin{lstlisting}[style=tex]
+\usepackage{listings}
+
+\begin{document}
+  \begin{lstlisting}[language=latex, caption=Beschriftung]
+      % hier kann man wild coden
+  \end{lstlitsing}
+\end{document}\end{lstlisting}
+
+Und so sähe Haskell-Code aus:
+\begin{lstlisting}[style=hs, caption= Fakultät in Haskell]
+fak :: [Integer] -> [Integer]
+fak 0 = 1
+fak n = n * fak(n-1)
+\end{lstlisting}
+
+% \begin{lstlisting}[style=py, caption=Beschriftung]
+% def myFunction():
+%     # hier kann man wild coden
+%     return True\end{lstlisting}
+\end{frame}
+
+% ////////////////// Quellcode extern einbinden //////////////
+\begin{frame}[fragile]{Quellcode extern einbinden}
+In der Regel programmiert man in einer Datei und möchte Teile dieser im \LaTeX-Dokument einbinden. Dies geht mittels \textbf{lstinputstring}:
+
+\begin{lstlisting}[style=tex, caption=lstlisting]
+\lstinputlisting[language=latex, caption={Beschriftung}]{pfad/filename.tex}\end{lstlisting}
+
+\pause Man kann auch nur ein paar Zeilen des Programmcodes einbinden:
+
+\begin{lstlisting}[style=tex, firstnumber=2]
+\lstinputlisting[language=latex, linerange=23-42, firstnumber=23]{pfad/filename.tex}\end{lstlisting}
+
+\begin{lstlisting}[style=tex, firstnumber=3]
+\lstinputlisting[language=latex, firstline=23, lastline=42]{pfad/filename.tex}\end{lstlisting}
+
+\begin{itemize}
+\item \textbf{linerange} -- Bereich im Quellcode
+\item \textbf{firstline} -- Beginn des einzubindenden Quellcodes
+\item \textbf{lastline} -- Ende des einzubindenden Quellcodes 
+\item \textbf{firstnumber} -- Beginn der Zeilen-Nummerierung
+\end{itemize}
+\end{frame}
+
+% ////////////////// Liste der Programmcodes //////////////
+\subsection{Liste der Programmcodes}
+\begin{frame}[fragile]
+Eine Liste der \textbf{lstlistings} wird wie folgt erstellt:
+
+\begin{lstlisting}[style=tex]
+\lstlistoflistings\end{lstlisting}
+\end{frame}
+

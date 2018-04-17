@@ -1,0 +1,163 @@
+\section{Mathematikmodus}
+
+% ////////////////// Mathematikmodus //////////////
+\begin{frame}[fragile]{Mathematikmodus}
+Ist eine Umgebung, die dafür optimiert ist, mathematische Formeln und Symbole darzustellen.
+Benötigte Pakete:
+\begin{lstlisting}[style=tex]
+\usepackage{amsmath}    % MUSS vor fontspec geladen werden
+\usepackage{mathtools}   % modifiziert amsmath
+\usepackage{amssymb}    % mathematische symbole, für \ceckmarks
+\usepackage{amsthm}      % für proof
+\usepackage{mathrsfs}     % für \mathscr
+\usepackage{latexsym}
+\usepackage{marvosym}   % zusätzliche Zeichen, z.B. Lightning
+\usepackage{cancel}         % für das Durchstreichen u.a. in Matheformeln mit \cancel
+\end{lstlisting}
+\end{frame}
+
+% \begin{frame}[fragile]{Mathematikmodus}
+% \begin{itemize}
+% \item zahlreiche Befehle, Symbole und Umgebungen funktionieren nur in diesem Modus
+% \item andere funktionieren gerade in diesem Modus nicht und man muss für diese entsprechend andere Modi oder Befehle verwenden:
+
+% \vspace{1ex}
+% \begin{tabular}{l|l|l}
+% Befehl & Textmodus & Mathematikmodus \\
+% \hline
+% Unterstrich & \verb|\_| & \_ \\
+% Dach & \verb|\^{}| & \verb|^| \\
+% Tabelle & \verb|tabular| & \verb|array| \\
+% Bold & \verb|\textbf{}| & \verb|\mathbf{}| \\
+% Backslash & \verb|\textbackslash| & \verb|\backslash| \\
+% \end{tabular}
+% \end{itemize}
+% \end{frame}
+
+\subsection{inline vs. abgesetzt}
+\begin{frame}[fragile]{inline vs. abgesetzt}
+\begin{itemize}
+\item Im Fließtext wird der betreffende Ausdruck mit Dollarzeichen \textbf{\$} umgeben. z.B.: \verb|$E = mc^2$|
+% \begin{lstlisting}[style=tex]
+% Mitten im $E = mc^2$ Text...
+% \end{lstlisting}
+
+\vspace{0.5ex} Mitten im Text steht die Formel $E = mc^2$ von Einstein.\pause
+
+\item Um einzeilige Formeln abzusetzen, baut man eine Umgebung auf, innerhalb derer der Mathematikmodus eingeschaltet ist:
+
+\begin{lstlisting}[style=tex]
+\[ E=mc^2 \]
+\end{lstlisting}
+Führt zu:
+\[ E=mc^2 \]
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{inline vs. abgesetzt}
+\begin{itemize}
+\item Die \textbf{align}-Umgebung schaltet den Mathematikmodus ein,
+\item zentriert Formel,
+\item erlaubt Zeilenumbrüche (\textbf{\textbackslash\textbackslash}),
+\item nummeriert die Zeilen und
+\item ermöglicht Ausrichtung der Zeilen zueinander (mittels \textbf{\&}).
+\end{itemize}
+
+\begin{lstlisting}[style=tex]
+\begin{align}
+\sum_{i=0}^{n+1} i &= \sum_{i=0}^n i + (n+1) \\
+                                    &= \frac{n(n+1)}{2} + (n+1)
+\end{align}
+\end{lstlisting}
+
+\pause Und so sieht es aus:
+\begin{align}
+\sum_{i=0}^{n+1} i &= \sum_{i=0}^n i + (n+1) \\
+                       &= \frac{n(n+1)}{2} + (n+1)
+\end{align}\pause
+
+Will man keine Nummerierung, nutzt man \textbf{align*}
+\end{frame}
+
+\subsection{Spezielle Formatierungen}
+\begin{frame}[fragile]{Spezielle Formatierungen}
+\begin{minipage}{0.3\linewidth}
+\begin{lstlisting}[style=tex]
+\begin{theorem}
+...
+\end{theorem}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.65\linewidth}
+\begin{theorem}
+This is a theorema about right triangles and can be summarised in the next 
+equation 
+\[ x^2 + y^2 = z^2 \]
+\end{theorem}
+\end{minipage}
+
+\begin{minipage}{0.3\linewidth}
+\begin{lstlisting}[style=tex]
+\begin{corollary}
+...
+\end{corollary}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.65\linewidth}
+\begin{corollary}
+There's no right rectangle whose sides measure 3cm, 4cm, and 6cm.
+\end{corollary}
+\end{minipage}
+
+\begin{minipage}{0.3\linewidth}
+\begin{lstlisting}[style=tex]
+\begin{lemma}
+...
+\end{lemma}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.65\linewidth}
+\begin{lemma}
+Given two line segments whose lengths are $a$ and $b$ respectively there is a 
+real number $r$ such that $b=r\cdot a$.
+\end{lemma}
+\end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{Spezielle Formatierungen}
+\begin{minipage}{0.3\linewidth}
+\begin{lstlisting}[style=tex]
+\begin{proof}
+...
+\end{proof}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.65\linewidth}
+\begin{proof}
+Mit $r=\frac{b}{a}$ gilt stets $b=r\cdot a$.
+\end{proof}
+\end{minipage}
+
+\begin{minipage}{0.3\linewidth}
+\begin{lstlisting}[style=tex]
+\begin{definition}
+...
+\end{definition}
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.65\linewidth}
+\begin{definition}
+\[ fak(n) := \begin{cases}
+1, & n = 0 \\
+n\cdot fak(n-1), & \text{sonst}
+\end{cases}
+\quad
+\forall n \in \mathbb{N} \]
+\end{definition}
+\end{minipage}
+\end{frame}

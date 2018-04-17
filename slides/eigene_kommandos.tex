@@ -1,0 +1,72 @@
+\section{Eigene Kommandos und Umgebungen}
+
+% ////////////////// Eigene Kommandos erstellen //////////////
+\subsection{Eigene Kommandos erstellen}
+
+\begin{frame}[fragile]{Eigene Kommandos erstellen}
+Man kann sich eigene Kommandos erstellen, um z.\,B. Schreibaufwand einzusparen.
+
+\begin{lstlisting}[style=tex]
+\newcommand{\name}{Was es tun soll}\end{lstlisting}
+
+\pause Hier ein Beispiel:
+\begin{lstlisting}[style=tex]
+\newcommand\zz{\ensuremath{\raisebox{+0.25ex}{Z}% zu-zeigen-Symbol
+   \kern-0.4em\raisebox{-0.25ex}{Z}%
+   \;\xspace}%
+}\end{lstlisting}
+
+\vspace{1ex}\pause Und so sieht es aus: $\zz$
+\end{frame}
+
+\begin{frame}[fragile]{Eigene Kommandos}
+Es lassen sich auch Kommandos erstellen, welche Argumente erhalten und diese benutzen:
+
+\begin{lstlisting}[style=tex]
+\newcommand{\name}[Argumentzahl]{was es mit dem Argument #1 tun soll}\end{lstlisting}
+
+\pause Hier ein Beispiel:
+
+\begin{lstlisting}[style=tex]
+\newcommand{\Quellcode}[3]{\lstinputlisting[%
+   language=#2,   % 2. Argument: filename
+   caption={#3}] % 3. Argument: Beschriftung
+   {#1.#2}}         % 1. Argument: path\end{lstlisting}
+
+\pause In der Anwendung:
+\begin{lstlisting}[style=tex]
+\Quellcode{src/myFile}{py}{Ein Python-Programm}\end{lstlisting}
+\end{frame}
+
+% ////////////////// Eigene Umgebungen erstellen //////////////
+\subsection{Eigene Umgebungen erstellen}
+\begin{frame}[fragile]{Eigene Umgebungen erstellen}
+Möchte man eine bereits vorhandene Umgebung modifizieren, geht dies nicht mittels Kommando, sondern mit \verb|\newenvironment| .
+
+\begin{lstlisting}[style=tex]
+\newenvironment{name}[Argumentzahl]{Befehlsbeginn}{Befehlsende}\end{lstlisting}
+
+\pause Nachfolgend ein Beispiel:
+
+\begin{lstlisting}[style=tex]
+\newenvironment{Magic}[1][Pink]% hat 1 optionales Arg., Standardwert: Pink
+   {\begin{center}\begingroup\textcolor{#1}}%
+   {\endgroup\end{center}}\end{lstlisting}
+\pause
+
+\begin{multicols}{2}
+Hier ein Beispiel:
+\begin{lstlisting}[style=tex]
+\begin{Magic}
+   mein toller Text
+\end{Magic}
+\end{lstlisting}
+
+Und so sieht es aus:
+\vspace{0.75ex}
+\begin{Magic}
+   mein toller Text
+\end{Magic}
+\vspace{0.75ex}
+\end{multicols}
+\end{frame}
