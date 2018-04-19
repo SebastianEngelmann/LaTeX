@@ -74,15 +74,8 @@ Führt zu:
 \end{math}
 \end{frame}
 
-\begin{frame}[fragile]{inline vs. abgesetzt}
-\begin{itemize}
-\item Die \textbf{align}-Umgebung schaltet den Mathematikmodus ein,
-\item zentriert Formel,
-\item erlaubt Zeilenumbrüche (\textbf{\textbackslash\textbackslash}),
-\item nummeriert die Zeilen und
-\item ermöglicht Ausrichtung der Zeilen zueinander (mittels \textbf{\&}).
-\end{itemize}
-
+\begin{frame}[fragile]{Absatzmodus}
+Die Umgebung \texttt{align} schaltet den Mathematikmodus ein. Die Formel wird zentriert und es werden Zeilenumbrüche durch das Makro \texttt{\textbackslash\textbackslash} erlaubt. Die Umgebung nummeriert die Zeilen und ermöglicht ein Ausrichten der Zeilen mit dem Makro \texttt{\&} zueinander. 
 \begin{lstlisting}[style=tex]
 \begin{align}
 \sum_{i=0}^{n+1} i &= \sum_{i=0}^n i + (n+1) \\
@@ -90,11 +83,12 @@ Führt zu:
 \end{align}
 \end{lstlisting}
 
-\pause Und so sieht es aus:
+%\pause 
+Und so sieht es aus:
 \begin{align}
 \sum_{i=0}^{n+1} i &= \sum_{i=0}^n i + (n+1) \\
                        &= \frac{n(n+1)}{2} + (n+1)
-\end{align}\pause
+\end{align}%\pause
 
 Will man keine Nummerierung, nutzt man \textbf{align*}
 \end{frame}
@@ -158,7 +152,7 @@ real number $r$ such that $b=r\cdot a$.
 \hfill
 \begin{minipage}{0.65\linewidth}
 \begin{proof}
-Mit $r=\frac{b}{a}$ gilt stets $b=r\cdot a$.
+$Mit $r=\frac{b}{a}$ gilt stets $b=r\cdot a$.
 \end{proof}
 \end{minipage}
 
