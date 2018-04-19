@@ -3,9 +3,7 @@
 % ===== Mathematikmodus =====
 \begin{frame}[fragile]{Mathematikmodus}
 Der Mathematikmodus ist eine Umgebung, die dafür optimiert ist, mathematische Formeln und Symbole darzustellen. Dafür werden folgende Pakete benötigt:
-%Ist eine Umgebung, die dafür optimiert ist, mathematische Formeln und Symbole darzustellen.
-%Benötigte Pakete:
-\begin{lstlisting}[style=tex]
+\begin{lstlisting}[style=tex, mathescape]
 \usepackage{amsmath}    % MUSS vor fontspec geladen werden
 \usepackage{mathtools}   % modifiziert amsmath
 \usepackage{amssymb}    % mathematische symbole, für \checkmarks
@@ -35,24 +33,45 @@ Der Mathematikmodus ist eine Umgebung, die dafür optimiert ist, mathematische F
 % \end{itemize}
 % \end{frame}
 
-\subsection{inline vs. abgesetzt}
-\begin{frame}[fragile]{inline vs. abgesetzt}
-\begin{itemize}
-\item Im Fließtext wird der betreffende Ausdruck mit Dollarzeichen \textbf{\$} umgeben. z.B.: \verb|$E = mc^2$|
+\subsection{Zeilenmodus vs. Absatzmodus}
+\begin{frame}[fragile]{Zeilenmodus vs. Absatzmodus}	
+Grundsätzlich unterscheidet schon \TeX{} den Zeilenmodus (inline) und den Absatzmodus (abgesetzten Modus). Unter dem Zeilenmodus versteht man das Einfügen von mathematischen Elementen in die laufende Zeile und unter dem abgesetzten Modus das Setzen einer Gleichung als eigenständigen Absatz.
+%\item Im Fließtext wird der betreffende Ausdruck mit Dollarzeichen \textbf{\$} umgeben. z.B.: \verb|$E = mc^2$|
 % \begin{lstlisting}[style=tex]
 % Mitten im $E = mc^2$ Text...
 % \end{lstlisting}
 
-\vspace{0.5ex} Mitten im Text steht die Formel $E = mc^2$ von Einstein.\pause
+%\vspace{0.5ex} Mitten im Text steht die Formel $E = mc^2$ von Einstein.\pause
 
-\item Um einzeilige Formeln abzusetzen, baut man eine Umgebung auf, innerhalb derer der Mathematikmodus eingeschaltet ist:
+%\item Um einzeilige Formeln abzusetzen, baut man eine Umgebung auf, innerhalb derer der Mathematikmodus eingeschaltet ist:
 
-\begin{lstlisting}[style=tex]
-\[ E=mc^2 \]
+%\begin{lstlisting}[style=tex]
+%\[ E=mc^2 \]
+%\end{lstlisting}
+%Führt zu:
+%\[ E=mc^2 \]
+%\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Zeilenmodus}
+Der Zeilenmodus kann durch drei verschiedene Umgebungen aktiviert werden:
+\begin{lstlisting}[mathescape=true]{style=tex}
+\(\sum_{i=1}^{n}i=\frac{1}{2}n\cdot (n+1)\)
+\end{lstlisting}
+Führt zu: \(\sum_{i=1}^{n}i=\frac{1}{2}n\cdot (n+1)\)
+\begin{lstlisting}[mathescape=false]{style=tex}
+$\sum_{i=1}^{n}i=\frac{1}{2}n\cdot (n+1)$
+\end{lstlisting}
+Führt zu: $\sum_{i=1}^{n}i=\frac{1}{2}n\cdot (n+1)$
+\begin{lstlisting}[mathescape=false]{style=tex}
+\begin{math}
+\sum_{i=1}^{n}i=\frac{1}{2}n\cdot (n+1)
+\end{math}
 \end{lstlisting}
 Führt zu:
-\[ E=mc^2 \]
-\end{itemize}
+\begin{math}
+\sum_{i=1}^{n}i=\frac{1}{2}n\cdot (n+1)
+\end{math}
 \end{frame}
 
 \begin{frame}[fragile]{inline vs. abgesetzt}
