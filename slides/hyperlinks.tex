@@ -1,6 +1,7 @@
 \section{Querverweise \& Hyperlinks}
 \begin{frame}[fragile]{Querverweise \& Hyperlinks}
-Um Querverweise im Dokument zu setzen, muss man folgende Pakete einbinden:
+%Um Querverweise im Dokument zu setzen, muss man folgende Pakete einbinden:
+Um Querverweise im Dokument zu setzen, müssen folgende Pakete eingebunden werden:
 \begin{lstlisting}[style=tex]
 \usepackage[        % Verlinkungen
   colorlinks,            % farbige Schrift, statt farbiger Rahmen
@@ -8,18 +9,18 @@ Um Querverweise im Dokument zu setzen, muss man folgende Pakete einbinden:
   linkcolor=blue       % setzt Farbe der Links auf blau
 ]{hyperref}
 \usepackage{url}  % für Webadressen: "\url{http://www.example.com}"
-\end{lstlisting}\pause
+\end{lstlisting}%\pause
 
 \bigskip
-Einen dokumentinternen Verweis\label{LABELNAME} kann man wie folgt erstellen:
+Einen Verweis\label{LABELNAME} kann man wie folgt erstellen:
 \begin{lstlisting}[style=tex]
 \label{LABELNAME} % setzt einen Verweis an die entsprechende Stelle.
 \end{lstlisting}
 
-Auf diesen kann in einer anderen Stelle referenziert werden:
+Auf diesen kann an einer anderen Stelle referenziert werden:
 \begin{lstlisting}[style=tex]
 Hier steht ein Verweis zur Seite \ref{LABELNAME}.
-\end{lstlisting}\pause
+\end{lstlisting}%\pause
 
 \bigskip
 $\Rightarrow$ Hier steht ein Verweis zur Seite \ref{LABELNAME}.
@@ -30,7 +31,7 @@ Auch \textbf{URL}s kann man einfach hinzufügen:
 \begin{lstlisting}[style=tex]
 \url{http://latex.org}
 \end{lstlisting}
-So sieht es aus: \url{http://latex.org}\pause
+So sieht es aus: \url{http://latex.org}%\pause
 
 \bigskip
 Ein \textbf{Verzeichnis der Querverweise} wird automatisch mit folgendem Befehl erstellt:

@@ -8,9 +8,10 @@ Wenn Text nicht vom \LaTeX-Compiler interpretiert werden soll, kann man ihn in e
 \begin{lstlisting}[style=tex]
 \verb| nicht interpretierter Text |
 \end{lstlisting}
-Dabei muss dem Befehl mitgeteilt werden, wann dies endet. Dies geschieht durch ein Zeichen, das den Bereich einleitet und abschließt.
+Dabei muss dem Befehl mitgeteilt werden, wann dies endet. Dies geschieht durch ein Zeichen, das den Bereich einleitet und abschlie{\ss}t.
 
-\pause\vspace{2ex}
+%\pause
+\vspace{2ex}
 Für mehrere Zeilen gibt es die \textbf{verbatim}-Umgebung:
 
 \begin{lstlisting}[style=tex]
@@ -29,25 +30,37 @@ Für mehrere Zeilen gibt es die \textbf{verbatim}-Umgebung:
 % ////////////////// Quellcode inline einbinden //////////////
 \subsection{Lstlistings}
 \begin{frame}[fragile]{Lstlistings: Quellcode inline einbinden}
-Um Programmcode in das Dokument einzubinden, möchte man sprachspezifisches \textbf{Syntax-Highlighting} und Zeilennummerierungen haben.
-
-\pause\vspace{2ex}
-Dafür gibt es das \textbf{listings}-Paket:
+%Um Programmcode in das Dokument einzubinden, möchte man sprachspezifisches \textbf{Syntax-Highlighting} und Zeilennummerierungen haben.
+Um Programmcode in das Dokument einzubinden, kann man das Paket \texttt{listings} verwenden.
+%\pause
+\vspace{2ex}
+%Dafür gibt es das \textbf{listings}-Paket:
 
 \begin{lstlisting}[style=tex]
 \usepackage{listings}
 
 \begin{document}
-  \begin{lstlisting}[language=latex, caption=Beschriftung]
+  \begin{lstlisting}[language=python, caption=Beschriftung]
       % hier kann man wild coden
   \end{lstlitsing}
 \end{document}\end{lstlisting}
 
-Und so sähe Haskell-Code aus:
-\begin{lstlisting}[style=hs, caption= Fakultät in Haskell]
-fak :: [Integer] -> [Integer]
-fak 0 = 1
-fak n = n * fak(n-1)
+%Und so sähe Haskell-Code aus:
+%\begin{lstlisting}[style=hs, caption= Fakultät in Haskell]
+%fak :: [Integer] -> [Integer]
+%fak 0 = 1
+%fak n = n * fak(n-1)
+%\end{lstlisting}
+
+So sieht dann Python-Code aus:
+\begin{lstlisting}[language=python, caption = Berechnung der n-ten Fibonacci in Python durch Rekursion]
+def fib_rek(n):
+    if n <= 0:
+        raise Exception
+    elif n == 1 or n == 2:
+        return 1
+    else:
+        return fib_rek(n-1) + fib_rek(n-2)
 \end{lstlisting}
 
 % \begin{lstlisting}[style=py, caption=Beschriftung]
