@@ -1,5 +1,5 @@
 \section{Bibliographie-Verzeichnis}
-\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\TeX}
+\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\LaTeX}
 Wenn man sich auf Bücher oder Artikel anderer Autoren bezieht, muss man dies kennzeichnen. Dazu erstellt man ein Bibliographie-Datenbank und bindet diese ein:
 \begin{lstlisting}[style=tex]
 \usepackage[OPTIONS]{biblatex} % z.B. style=numeric
@@ -12,7 +12,69 @@ Wenn man sich auf Bücher oder Artikel anderer Autoren bezieht, muss man dies ke
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\TeX}
+\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\LaTeX}
+Das Paket \texttt{biblatex} unterstützt sowohl die nummerische Zitierweise, als auch das Autor-Jahr-Schema. Einige der unterschidlichen Zitierstile sind in der nachfolgenden Tabelle zusammengefasst. 
+\begin{table}
+	\caption{Einige Zitierstile von Bib\LaTeX}
+\begin{tabular}{ll}
+	\hline
+	Zitierstil & Beispiel-Ausgabe \\
+	\hline
+	\texttt{numeric} & [1, 4, 3, 5] \\
+	\texttt{numeric-comp} & [1, 3-5] \\
+	\texttt{numeric-verb} & [1]; [4]; [3]; [5] \\
+	\texttt{alphabetic} & [Ang02; Spr50; GMS94; VLUR93] \\
+	\texttt{alphabetic-verb} & [Ang02]; [Spr50]; [GMS94]; [VLUR93] \\
+	\texttt{authoryear} & Angenendt 2002 \\
+	\texttt{authortitle} & Angenendt, >>In Honore Salvatoris<< \\
+	\hline
+\end{tabular}
+\end{table}
+
+Der gewünschte Stil wird als Paketoption an \texttt{biblatex} übergeben, also bspw. \texttt{style=authoryear}:
+\begin{lstlisting}[style=tex]
+\usepackage[style=authoryear, backend=biber]{biblatex}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\LaTeX}
+\begin{lstlisting}[style=tex]
+\parencite[121]{springer}
+\end{lstlisting}
+\begin{table}
+	\caption{Das Makro \texttt{\textbackslash parencite}}
+\begin{tabular}{ll}
+	\hline
+	Zitierstil & Beispiel-Ausgabe \\
+	\hline
+	\texttt{numeric} & [1, S. 121] \\
+	\texttt{alphabetic} & [Spr50, S. 121] \\
+	\texttt{authoryear} & (Springer 1950, S. 121) \\
+	\texttt{authortitle} & (Springer, >>Mediaeval Pilgrim Routes<<, S. 121) \\
+	%\texttt{verbose} & (Springer, >>Mediaeval Pilgrim Routes<<, S. 121) \\
+	\hline
+\end{tabular}
+\begin{lstlisting}[style=tex]
+\textcite[121]{springer}
+\end{lstlisting}
+\begin{table}
+	\caption{Das Makro \texttt{\textbackslash textcite}}
+	\begin{tabular}{ll}
+		\hline
+		Zitierstil & Beispiel-Ausgabe \\
+		\hline
+		\texttt{numeric} & Springer [1, S. 121] \\
+		\texttt{alphabetic} & Springer [Spr50, S 121] \\
+		\texttt{authoryear} & Springer [1950, S. 121] \\
+		\texttt{authortitle} & Springer (>>Mediaeval Pilgrim Routes<<, S. 121) \\
+		\hline
+	\end{tabular}
+\end{table}
+\end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\LaTeX}
 Ein Eintrag in der Datenbank hat folgendes Schema:
 \begin{lstlisting}[style=tex]
 @REFERENZART{NAME,
@@ -55,12 +117,12 @@ Es gibt verschiedene Referenzarten:
 Quelle: \url{https://de.wikipedia.org/wiki/BibTeX}
 \end{frame}
 
-\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\TeX}
+\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\LaTeX}
 Eine Ressource zitiert man im Text wie folgt:
 \begin{lstlisting}[style=tex]
 \cite{NAME}
 \end{lstlisting}
-Sie wird dann im Literaturverzeichnis aufgeführt.\pause
+Sie wird dann im Literaturverzeichnis aufgeführt.%\pause
 
 \bigskip
 Sollen alle Einträge der Literaturdatenbank in das Literaturverzeichnis übernommen
