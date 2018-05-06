@@ -75,59 +75,159 @@ Der gewünschte Stil wird als Paketoption an \texttt{biblatex} übergeben, also 
 \end{frame}
 
 \begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\LaTeX}
+\begin{table}
+	\caption{Zusammenstellung der Pakete, die zusätzliche Stile für \texttt{biblatex} bereitstellen}
+	\begin{tabular}{ll}
+		\hline
+		Stil & Hinweis \\
+		\hline
+		\texttt{apa} & American Psychological Association \\
+		\texttt{authoryear-icomp-tt} & \texttt{authoryear-comp} und \texttt{authoryear-ibid} \\
+		\texttt{chem-angew} & Angewandte Chemie \\
+		\texttt{chem-biochem} & Biochemistry \\
+		\texttt{chicago} & Chicago Manual Style \\
+		\texttt{footnote-dw} & Vollzitat als Fußnote \\
+		\texttt{authortitle-dw} & Autor-Titel-Stil \\
+		\texttt{historian} & Standard \\
+		\texttt{biblatex-jura} & Juristische Schriften \\
+		\texttt{mla} & Modern Language Association \\
+		\texttt{nature} & Nature Journal \\
+		\texttt{science} & Science Journal \\
+		\texttt{historische-zeitschrift} & Historische Zeitschrift \\
+		\texttt{philosophy-classic} & \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\end{frame}
+
+\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\LaTeX}
 Ein Eintrag in der Datenbank hat folgendes Schema:
 \begin{lstlisting}[style=tex]
-@REFERENZART{NAME,
-   author = "",
-   title = "",
-   volume = "",
-   number = "",
-   pages = "",
-   year = "", % hat die Form JJJJ
-   month = "",
-   howpublished = "",
-   note = "",
-   url = "", % benötigt das Paket "hyperref"
+@REFERENZART{key,
+author = "",
+title = "",
+...
 }
 \end{lstlisting}
 
 Es gibt verschiedene Referenzarten:
 \begin{small}
-\vspace{-1ex}
-\begin{multicols}{3}
-\begin{itemize}\setlength{\itemsep}{-0.5ex}
-\item article
-\item book
-\item booklet
-\item conference
-\item inbook
-\item incollection
-\item inproceedings
-\item manual
-\item masterthesis
-\item misc
-\item phdthesis
-\item proceedings
-\item tecreport
-\item unpublished
-\end{itemize}
-\end{multicols}
+	\vspace{-1ex}
+	\begin{multicols}{3}
+		\begin{itemize}\setlength{\itemsep}{-0.5ex}
+			\item article
+			\item book
+			\item mvbook
+			\item inbook
+			\item bookinbook
+			\item suppbook
+			\item booklet
+			\item collection
+			\item mvcollection
+			\item incollection
+			\item suppcollection
+			\item manual
+			\item misc
+			\item online
+			\item patent
+			\item periodical
+			\item suppperiodical
+			\item proceedings
+			\item mvproceedings
+			\item inproceedings
+			\item reference
+			\item mvreference
+			\item inreference
+			\item report
+			\item set
+			\item thesis
+			\item unpublished
+			\item xdata
+			\item custom[a-f]
+		\end{itemize}
+	\end{multicols}
 \end{small}
 
-Quelle: \url{https://de.wikipedia.org/wiki/BibTeX}
+Quelle: \url{http://mirror.utexas.edu/ctan/info/translations/biblatex/de/biblatex-de-Benutzerhandbuch.pdf}
 \end{frame}
+
+%\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\LaTeX}
+%Ein Eintrag in der Datenbank hat folgendes Schema:
+%\begin{lstlisting}[style=tex]
+%@REFERENZART{NAME,
+%   author = "",
+%   title = "",
+%   volume = "",
+%   number = "",
+%   pages = "",
+%   year = "", % hat die Form JJJJ
+%   month = "",
+%   howpublished = "",
+%   note = "",
+%   url = "", % benötigt das Paket "hyperref"
+%}
+%\end{lstlisting}
+
+%Es gibt verschiedene Referenzarten:
+%\begin{small}
+%\vspace{-1ex}
+%\begin{multicols}{3}
+%\begin{itemize}\setlength{\itemsep}{-0.5ex}
+%\item article
+%\item book
+%\item booklet
+%\item conference
+%\item inbook
+%\item incollection
+%\item inproceedings
+%\item manual
+%\item masterthesis
+%\item misc
+%\item phdthesis
+%\item proceedings
+%\item tecreport
+%\item unpublished
+%\end{itemize}
+%\end{multicols}
+%\end{small}
+
+%Quelle: \url{https://de.wikipedia.org/wiki/BibTeX}
+%\end{frame}
 
 \begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\LaTeX}
-Eine Ressource zitiert man im Text wie folgt:
-\begin{lstlisting}[style=tex]
-\cite{NAME}
+Standardmakros für Verweise:
+\begin{lstlisting}[sytle=tex]
+\cite[Präfix][Suffix]{Schlüssel}<Satzzeichen>
 \end{lstlisting}
-Sie wird dann im Literaturverzeichnis aufgeführt.%\pause
-
-\bigskip
-Sollen alle Einträge der Literaturdatenbank in das Literaturverzeichnis übernommen
-werden, wenngleich sie nicht im Text zitiert wurden, kann dies wie folgt erreicht werden:
 \begin{lstlisting}[style=tex]
-\nocite{*}
+\Cite[Präfix][Suffix]{Schlüssel}<Satzzeichen>
+\end{lstlisting}
+\begin{lstlisting}[style=tex]
+\parencite[Präfix][Suffix]{Schlüssel}<Satzzeichen>
+\end{lstlisting}
+\begin{lstlisting}[style=tex]
+\Parencitecite[Präfix][Suffix]{Schlüssel}<Satzzeichen>
+\end{lstlisting}
+\begin{lstlisting}[style=tex]
+\footcite[Präfix][Suffix]{Schlüssel}<Satzzeichen>
+\end{lstlisting}
+\begin{lstlisting}[style=tex]
+\footcitetext[Präfix][Suffix]{Schlüssel}<Satzzeichen>
 \end{lstlisting}
 \end{frame}
+
+%\begin{frame}[fragile]{Bibliographie-Verzeichnis mit Bib\LaTeX}
+%Eine Ressource zitiert man im Text wie folgt:
+%\begin{lstlisting}[style=tex]
+%\cite{NAME}
+%\end{lstlisting}
+%Sie wird dann im Literaturverzeichnis aufgeführt.%\pause
+
+%\bigskip
+%Sollen alle Einträge der Literaturdatenbank in das Literaturverzeichnis übernommen
+%werden, wenngleich sie nicht im Text zitiert wurden, kann dies wie folgt erreicht werden:
+%\begin{lstlisting}[style=tex]
+%\nocite{*}
+%\end{lstlisting}
+%\end{frame}
