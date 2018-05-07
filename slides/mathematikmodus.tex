@@ -5,13 +5,9 @@
 Der Mathematikmodus ist eine Umgebung, die dafür optimiert ist, mathematische Formeln und Symbole darzustellen. Dafür werden folgende Pakete benötigt:
 \begin{lstlisting}[style=tex, mathescape]
 \usepackage{amsmath}    % MUSS vor fontspec geladen werden
-\usepackage{mathtools}   % modifiziert amsmath
 \usepackage{amssymb}    % mathematische symbole, für \checkmarks
 \usepackage{amsthm}      % für proof
-\usepackage{mathrsfs}     % für \mathscr
-\usepackage{latexsym}
-\usepackage{marvosym}   % zusätzliche Zeichen, z.B. Lightning
-\usepackage{cancel}         % für das Durchstreichen u.a. in Matheformeln mit \cancel
+\usepackage{amsfonts}    % stellt Fonts zur Verfügung
 \end{lstlisting}
 \end{frame}
 
@@ -35,7 +31,7 @@ Der Mathematikmodus ist eine Umgebung, die dafür optimiert ist, mathematische F
 
 \subsection{Zeilenmodus vs. Absatzmodus}
 \begin{frame}[fragile]{Zeilenmodus vs. Absatzmodus}	
-Grundsätzlich unterscheidet schon \TeX{} den Zeilenmodus (inline) und den Absatzmodus (abgesetzten Modus). Unter dem Zeilenmodus versteht man das Einfügen von mathematischen Elementen in die laufende Zeile und unter dem abgesetzten Modus das Setzen einer Gleichung als eigenständigen Absatz.
+Grundsätzlich unterscheidet schon \TeX{} den \textbf{Zeilenmodus} (inline) und den \textbf{Absatzmodus} (abgesetzten Modus). Unter dem Zeilenmodus versteht man das Einfügen von mathematischen Elementen in die laufende Zeile und unter dem abgesetzten Modus das Setzen einer Gleichung als eigenständigen Absatz.
 %\item Im Fließtext wird der betreffende Ausdruck mit Dollarzeichen \textbf{\$} umgeben. z.B.: \verb|$E = mc^2$|
 % \begin{lstlisting}[style=tex]
 % Mitten im $E = mc^2$ Text...
@@ -75,7 +71,7 @@ Führt zu:
 \end{frame}
 
 \begin{frame}[fragile]{Absatzmodus}
-Die Umgebung \texttt{align} schaltet den Mathematikmodus ein. Die Formel wird zentriert und es werden Zeilenumbrüche durch das Makro \texttt{\textbackslash\textbackslash} erlaubt. Die Umgebung nummeriert die Zeilen und ermöglicht ein Ausrichten der Zeilen mit dem Makro \texttt{\&} zueinander. 
+Die Umgebung \textbf{\texttt{align}} schaltet den Mathematikmodus ein. Die Formel wird zentriert und es werden Zeilenumbrüche durch das Makro \texttt{\textbackslash\textbackslash} erlaubt. Die Umgebung nummeriert die Zeilen und ermöglicht ein Ausrichten der Zeilen mit dem Makro \texttt{\&} zueinander. 
 \begin{lstlisting}[style=tex]
 \begin{align}
 \sum_{i=0}^{n+1} i &= \sum_{i=0}^n i + (n+1) \\
