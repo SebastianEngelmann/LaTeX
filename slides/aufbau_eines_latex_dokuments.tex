@@ -12,7 +12,7 @@
 ...
 \end{document}
 \end{lstlisting}
-Die Präambel enthält prinzipiell all das, was an allgemeinen Definitionen und zusätzlichen festlegungen für das gesamte Dokument vorgenommen wird.	
+Die Präambel enthält prinzipiell all das, was an allgemeinen Definitionen und zusätzlichen Festlegungen für das gesamte Dokument vorgenommen wird.	
 \end{frame}
 
 % ===== Beispiele =====
@@ -252,6 +252,35 @@ Nicht alle Zeichen der Tastatur stehen für die Eingabe zur Verfügung, da einig
 		\textbackslash & \textbackslash\texttt{textbackslash} & Makrobeginn \\
 		\textasciitilde & \textbackslash\texttt{textasciitilde} & Leerzeichen ohne Umbruch \\
 	    \textasciicircum & \textbackslash\texttt{textasciicircum} & Exponent im mathematischen Modus \\
+		\hline
+	\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{Sonderzeichen in \LaTeX}
+Für die Anführungszeichen wird das Paket \texttt{babel} oder \texttt{csquotes} benötigt. 
+\begin{table}
+	\caption{Anführungsstriche in \LaTeX{} mit dem Packet \texttt{babel}}
+	\begin{tabular}{rcll}
+		\hline
+		Eingabe & Ausgabe & Erläuterung & Beispiel \\
+		\hline
+		\textbackslash glqq & \glqq & deutscher Anfang & \\
+		\textbackslash grqq & \grqq & deutsches Ende & \glqq Wort \grqq \\
+		\textbackslash glq \textbackslash grq & \glq\grq & einfach unten, einfach oben & \glq Wort\grq \\
+		\textbackslash grq & \grq & deutsches Apostroph & Hans\grq{} Auto \\
+		\hline
+	\end{tabular}
+\end{table}
+
+\begin{table}
+	\caption{Anführungsstriche in \LaTeX{} mit dem Paket \texttt{csquotes}}
+	\begin{tabular}{rcll}
+		\hline
+		Eingabe & Ausgabe & Erläuterung &  Beispiel \\
+		\hline
+		\textbackslash enquote & \enquote{} & dt. Anfang und dt. Ende& \enquote{Text} \\
+		\textbackslash enquote* & \enquote*{} & einfach unten, einfach oben & \enquote*{Text} \\ 
 		\hline
 	\end{tabular}
 \end{table}

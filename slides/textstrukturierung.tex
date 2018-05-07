@@ -210,40 +210,40 @@ Diese Spalte ist genauso breit wie die rechts neben ihr stehende. & Der Text wir
 Die Gesamtbreite wird zu gleichen Teilen auf alle Spalten, die mit \textbf{X} deklariert wurden, verteilt.
 \end{frame}
 
-\begin{frame}[fragile]{Tabellen}
-Zeilen und Spalten zu einer verschmelzen:
+%\begin{frame}[fragile]{Tabellen}
+%Zeilen und Spalten zu einer verschmelzen:
 
-\begin{lstlisting}[style=tex]
-\usepackage{multirow}   % für multirow in tabulars
-\end{lstlisting}%\pause
+%\begin{lstlisting}[style=tex]
+%\usepackage{multirow}   % für multirow in tabulars
+%\end{lstlisting}%\pause
 
-Beispiel:
-\begin{lstlisting}[style=tex]
-\begin{tabular}{|c|c|c|}
-  \hline
-  \multicolumn{2}{|c|}{Kuchen} & Hefe \\
-  \hline
-  Zeit & \multirow{2}{*}{zwei Zeilen} & Zucker \\
-  \cline{1-1}\cline{3-3}  % vertikale Trennlinie
-  Sieb & & Mehl \\
-  \hline
-\end{tabular}
-\end{lstlisting}
+%Beispiel:
+%\begin{lstlisting}[style=tex]
+%\begin{tabular}{|c|c|c|}
+%  \hline
+%  \multicolumn{2}{|c|}{Kuchen} & Hefe \\
+%  \hline
+%  Zeit & \multirow{2}{*}{zwei Zeilen} & Zucker \\
+%  \cline{1-1}\cline{3-3}  % vertikale Trennlinie
+%  Sieb & & Mehl \\
+%  \hline
+%\end{tabular}
+%\end{lstlisting}
 
 %\begin{center}
-So sieht es aus:
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|c|c|c|}
-\hline
-\multicolumn{2}{|c|}{eine Spalte} & Hefe \\
-\hline
-Zeit & \multirow{2}{*}{eine Zeile} & Zucker \\
-\cline{1-1}\cline{3-3}
-Sieb & & Mehl \\
-\hline
-\end{tabular}
+%So sieht es aus:
+%\renewcommand{\arraystretch}{1.2}
+%\begin{tabular}{|c|c|c|}
+%\hline
+%\multicolumn{2}{|c|}{eine Spalte} & Hefe \\
+%\hline
+%Zeit & \multirow{2}{*}{eine Zeile} & Zucker \\
+%\cline{1-1}\cline{3-3}
+%Sieb & & Mehl \\
+%\hline
+%\end{tabular}
 %\end{center}
-\end{frame}
+%\end{frame}
 
 \begin{frame}[fragile]{Tabellenverzeichnis}
 Mit \textbf{\texttt{\textbackslash listoftables}} kann ein Tabellenverzeichnis erstellt werden.
@@ -251,20 +251,20 @@ Die Tabellen müssen sich dafür in der \textbf{table}-Umgebung befinden.
 
 \begin{lstlisting}[style=tex]
 \begin{table}
-   \caption{\LaTeX{} Kursübersicht}
-   \label{tab01}
+   \caption{Grundlagen \LaTeX{} für Seminararbeiten}
+   \label{tab:anwesenheit}
    \begin{tabular}{|c|c|c|}
       \hline
-      Zeitpunkt & Kursleiter & Titel \\
+      Teilnehmer & Anwesenheit \\
       \hline 
       ...   
    \end{tabular}
 \end{table}
-\end{lstlisting}\label{tab01}%\pause
+\end{lstlisting}\label{tab:anwesenheit}%\pause
 
 \begin{itemize}
 \item Der Befehl \textbf{\textbackslash listoftables} erstellt automatisch das Tabellenverzeichnis.
-\item Unsere Tabelle erzeugt den Eintrag ,,\textbf{\LaTeX{}~Kursübersicht} S.~\ref{tab01}``.
+\item Unsere Tabelle erzeugt den Eintrag ,,\textbf{Grundlagen \LaTeX{} für Seminararbeiten} S.~\ref{tab:anwesenheit}``.
 \end{itemize}
 \end{frame}
 
