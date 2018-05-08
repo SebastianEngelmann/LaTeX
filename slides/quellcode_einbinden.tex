@@ -41,7 +41,7 @@ Um Programmcode in das Dokument einzubinden, kann man das Paket \textbf{\texttt{
 
 \begin{document}
   \begin{lstlisting}[language=python, caption=Beschriftung]
-      % hier kann man wild coden
+      % hier steht Python-Code
   \end{lstlitsing}
 \end{document}\end{lstlisting}
 
@@ -76,7 +76,8 @@ In der Regel programmiert man in einer Datei und möchte Teile dieser im \LaTeX-
 \begin{lstlisting}[style=tex, caption=lstlisting]
 \lstinputlisting[language=latex, caption={Beschriftung}]{pfad/filename.tex}\end{lstlisting}
 
-\pause Man kann auch nur ein paar Zeilen des Programmcodes einbinden:
+%\pause 
+Man kann auch nur ein paar Zeilen des Programmcodes einbinden:
 
 \begin{lstlisting}[style=tex, firstnumber=2]
 \lstinputlisting[language=latex, linerange=23-42, firstnumber=23]{pfad/filename.tex}\end{lstlisting}
